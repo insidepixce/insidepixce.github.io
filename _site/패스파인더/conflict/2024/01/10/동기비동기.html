@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>동기비동기 한판정리 | InandOutsidepixce</title>
+<meta name="generator" content="Jekyll v3.9.4" />
+<meta property="og:title" content="동기비동기 한판정리" />
+<meta name="author" content="insidepixce" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="​ 동기/비동기 정리" />
+<meta property="og:description" content="​ 동기/비동기 정리" />
+<link rel="canonical" href="http://localhost:4000/%ED%8C%A8%EC%8A%A4%ED%8C%8C%EC%9D%B8%EB%8D%94/conflict/2024/01/10/%EB%8F%99%EA%B8%B0%EB%B9%84%EB%8F%99%EA%B8%B0.html" />
+<meta property="og:url" content="http://localhost:4000/%ED%8C%A8%EC%8A%A4%ED%8C%8C%EC%9D%B8%EB%8D%94/conflict/2024/01/10/%EB%8F%99%EA%B8%B0%EB%B9%84%EB%8F%99%EA%B8%B0.html" />
+<meta property="og:site_name" content="InandOutsidepixce" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-10T21:00:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="동기비동기 한판정리" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"insidepixce"},"dateModified":"2024-01-10T21:00:00+09:00","datePublished":"2024-01-10T21:00:00+09:00","description":"​ 동기/비동기 정리","headline":"동기비동기 한판정리","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/%ED%8C%A8%EC%8A%A4%ED%8C%8C%EC%9D%B8%EB%8D%94/conflict/2024/01/10/%EB%8F%99%EA%B8%B0%EB%B9%84%EB%8F%99%EA%B8%B0.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/%ED%8C%A8%EC%8A%A4%ED%8C%8C%EC%9D%B8%EB%8D%94/conflict/2024/01/10/%EB%8F%99%EA%B8%B0%EB%B9%84%EB%8F%99%EA%B8%B0.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="InandOutsidepixce" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">InandOutsidepixce</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <h3 class="toc-title">Table of Contents</h3>
+<nav class="toc-nav">
+  <ul class="toc">
+  <li><a href="#동기비동기-정리">동기/비동기 정리</a></li>
+  <li><a href="#예시">예시</a>
+    <ul>
+      <li><a href="#-시나리오-1-">[ 시나리오 1 ]</a></li>
+      <li><a href="#-시나리오-2-">[ 시나리오 2 ]</a></li>
+    </ul>
+  </li>
+  <li><a href="#요약">요약</a></li>
+  <li><a href="#예시-1-커피-주문하기">예시 1: 커피 주문하기</a>
+    <ul>
+      <li><a href="#동기적인-상황">동기적인 상황:</a></li>
+      <li><a href="#비동기적인-상황">비동기적인 상황:</a></li>
+    </ul>
+  </li>
+</ul>
+
+</nav>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">동기비동기 한판정리</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-01-10T21:00:00+09:00" itemprop="datePublished">
+        Jan 10, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">insidepixce</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>​<img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FA6ni2%2Fbtsk1CjTRcs%2FQqlCB2OrK7jhEF8wpWKjTk%2Fimg.jpg" alt="썸네일" /></p>
+<h2 id="동기비동기-정리">동기/비동기 정리</h2>
+
+<p>동기/비동기는 자바스크립트에서 중요한 개념 중 하나이다. 동기는 코드가 순차적으로 실행된다는 것을 의미하며, 비동기는 코드가 순차적으로 실행되지 않는다는 것을 의미한다. 비동기 코드는 예측할 수 없는 순서로 실행되며, 실행이 완료되면 콜백 함수가 호출된다.</p>
+
+<p>동기 코드의 예시는 다음과 같다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function add(x, y) {
+  return x + y;
+}
+
+const result = add(1, 2);
+console.log(result); // 3
+
+</code></pre></div></div>
+
+<p>위 코드에서 add 함수는 두 개의 숫자를 더한 값을 반환하는 일반적인 함수이다. 함수가 호출되면 결과가 즉시 반환되며, 결과는 result 변수에 할당된다. 이것은 동기 코드이다.</p>
+
+<p>비동기 코드의 예시는 다음과 같다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>setTimeout(() =&gt; {
+  console.log('Hello, World!');
+}, 1000);
+
+</code></pre></div></div>
+
+<p>위 코드에서 setTimeout 함수는 일정 시간이 지난 후에 실행될 콜백 함수를 등록하는 함수이다. 이 함수는 1초 후에 ‘Hello, World!’ 문자열을 콘솔에 출력한다. 이것은 비동기 코드이다. setTimeout 함수가 호출되면 결과가 즉시 반환되지 않으며, 1초 후에 콜백 함수가 호출된다.</p>
+
+<p>따라서 자바스크립트에서는 비동기 함수를 항상 콜백 함수와 함께 사용해야 한다. 이를 통해 비동기 코드의 실행 순서를 보장하고, 비동기 함수가 완료된 후에 콜백 함수를 호출할 수 있다.</p>
+
+<h2 id="예시">예시</h2>
+
+<p>동기와 비동기를 이해하기 위해 일상 생활에서의 예시를 들어볼 수 있다.</p>
+
+<p>예를 들어, 음식을 주문하는 것을 생각해보자. 동기 방식에서는 주문을 하면 음식이 나올 때까지 대기하며, 결과가 반환될 때까지 다른 일을 할 수 없다. 반면, 비동기 방식에서는 주문을 하고 나면 다른 스케줄을 세우거나, 다른 주문을 하거나, 롤이나 한 판 하는 등 다른 작업을 할 수 있다. 음식이 나오면 알림을 받아서 음식을 수령하고 먹으면 된다.</p>
+
+<p>이와 같이 동기 방식은 결과가 반환될 때까지 대기해야 하며, 다른 작업을 수행할 수 없다. 반면, 비동기 방식은 결과가 반환되기를 기다리지 않고 다른 작업을 수행할 수 있다.</p>
+
+<h1 id="예시-1">예시</h1>
+<ul>
+  <li>
+    <h3 id="-시나리오-1-">[ 시나리오 1 ]</h3>
+  </li>
+  <li>개발팀장이 3명의 사원에게 동시다발적으로 각각의 업무를 지시한다. ( = 비동기 )</li>
+  <li>놀랍게도 개발팀장은 3명의 사원에게 시킨 일을 확인도 안하고 본인 할 일도 한다 ( = 비동기 )</li>
+  <li>
+    <p>사원마다 맡은 일을 알아서 끝내고 개발팀장에게 보고한다. ( = 논블로킹 )</p>
+  </li>
+  <li>
+    <h3 id="-시나리오-2-">[ 시나리오 2 ]</h3>
+  </li>
+  <li>개발팀장이 사원1 에게 업무를 지시한다.</li>
+  <li>그리고 사원1 업무가 끝날때까지 언제 끝나냐고 눈초리를 준다. ( = 동기 )</li>
+  <li>사원1 의 업무처리가 너무 느려서 다른 사원에게 일을 주려고한다. ( = 비동기 )</li>
+  <li>그런데 사원1 은 도와달라며 개발팀장의 옷자락을 붙잡는다. ( = 블로킹 )</li>
+  <li>그걸 지켜보는 사원2 와 사원3 은 무슨 일을 주던 열심히 할 생각은 있지만 일이 없다. ( = 동기 )</li>
+</ul>
+
+<h2 id="요약">요약</h2>
+
+<p>동기/비동기 프로그래밍은 모든 프로그래밍 언어에서 중요한 개념 중 하나이다. 동기 프로그래밍은 코드가 순차적으로 실행되며, 결과가 즉시 반환된다는 것을 의미한다. 비동기 프로그래밍은 코드가 순차적으로 실행되지 않으며, 결과가 바로 반환되지 않는다는 것을 의미한다.</p>
+
+<p>비동기 함수는 대개 비동기 콜백 함수와 함께 사용되며, 콜백 함수는 비동기 함수가 완료된 후에 호출된다. 이를 통해 프로그램이 예측 가능한 방식으로 실행되는 것을 보장할 수 있다. 예를 들어, 파일을 읽는 비동기 함수는 파일이 성공적으로 읽혔을 때 콜백 함수를 호출하여 결과를 반환한다.</p>
+
+<p>동기 함수와 비동기 함수는 각각의 장단점이 있으며, 상황에 따라 적절한 방식을 선택해야 한다. 일반적으로, 네트워크 요청과 같은 오래 걸리는 작업을 수행할 때는 비동기 함수를 사용하는 것이 좋다. 이를 통해 사용자 인터페이스가 응답성을 유지하면서 백그라운드 작업이 수행될 수 있다.</p>
+
+<h1 id="이해가-안-갈-까봐-예시를-더-만들어봤습니다">이해가 안 갈 까봐 예시를 더 만들어봤습니다</h1>
+
+<h2 id="예시-1-커피-주문하기">예시 1: 커피 주문하기</h2>
+
+<h3 id="동기적인-상황">동기적인 상황:</h3>
+<p>고객이 커피 주문을 하면, 커피를 만드는 동안 다른 주문은 받지 않는다
+주문이 완료되고 커피가 나오면, 그 다음 주문을 받는다</p>
+
+<h3 id="비동기적인-상황">비동기적인 상황:</h3>
+<p>고객이 커피 주문을 하면, 주문은 바로 받아들이고 고객에게 예상 소요 시간을 알려준다 
+커피가 만들어지는 동안에도 다른 주문을 받아줄 수 있다
+각 주문이 완료되면, 그때마다 손님에게 알림을 주고 커피를 준다.</p>
+
+<p>동기적인 프로그래밍은 한 작업이 끝나야 다음 작업이 시작되는 반면, 비동기적인 프로그래밍은 여러 작업이 동시에 진행될 수 있고, 완료된 순서대로 결과를 얻을 수 있다는 것을 이해해야만 한다. 이러한 특성은 주로 네트워크 요청, 파일 다운로드, 사용자 인터랙션 등의 상황에서 뚜렷하게 나타난다.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#conflict">conflict</a>
+            </li>
+          
+            <li class="post-category">
+              
+              <a href="/categories/#%ED%8C%A8%EC%8A%A4%ED%8C%8C%EC%9D%B8%EB%8D%94">패스파인더</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#react">react</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/conflict/2024/01/10/itsone.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 암호화 키 오류
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/%ED%8C%A8%EC%8A%A4%ED%8C%8C%EC%9D%B8%EB%8D%94/conflict/2024/01/10/%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%B5%E1%84%87%E1%85%B5%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%B5.html';
+        this.page.identifier = '/%ED%8C%A8%EC%8A%A4%ED%8C%8C%EC%9D%B8%EB%8D%94/conflict/2024/01/10/%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%B5%E1%84%87%E1%85%B5%E1%84%83%E1%85%A9%E1%86%BC%E1%84%80%E1%85%B5.html';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mylog-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  
+
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 insidepixce; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>살아가는 방법을 다룹니다</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
