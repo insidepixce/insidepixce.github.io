@@ -1,9 +1,9 @@
 ---
 pin: true
 layout: post
-title: 20240110 TIL
+title: "20240110TIL"
 categories:
-  - react
+  - node.js
 tags:
   - 패스파인더
 author: insidepixce
@@ -15,6 +15,7 @@ disqus-count-scr: true
 comments: true
 toc: true
 ---
+독감은 독해서 독감이구나
 
 티아이엘.
 # 오늘의 피드백
