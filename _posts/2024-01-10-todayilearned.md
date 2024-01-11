@@ -100,11 +100,10 @@ const fetchUser = createAsyncThunk('user/fetchUser', async (_, { dispatch, rejec
 
 작업 중에 조금 밋밋했던 부분이 있었다. 리엑트 네이티브에서 화면 전환 애니메이션을 사용자 정의하는 것이 가능하고, ‘react-navigation’이라는 라이브러리를 활용하여 구현할 수 있다’
 
-```
+```markdown
 yarn add @react-navigation/native
 yarn add @react-navigation/stack 
 ```
-
 이렇게 설치해주었으면 애니메이션을 구현해보자.
 
 화면 전환 애니메이션을 구현하려면 ‘createStackNavigator’함수를 사용하여 네비게이션 스택을 만들고, screenOptions 속성을 활용하여 사용자 정의 애니메이션을 설정해줄 수 있다.
