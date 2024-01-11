@@ -13,4 +13,7 @@ permalink: /about/
 - **230918:** 결혼!  
 
 </div>
-**Instagram:** [outsidepixce](https://www.instagram.com/outsidepixce/)    
+
+**Instagram:** [outsidepixce](https://www.instagram.com/outsidepixce/)
+
+
