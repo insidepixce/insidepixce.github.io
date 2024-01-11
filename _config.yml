@@ -12,6 +12,10 @@ plugins:
 
 paginate: 10
 
+disqus:
+  shortname: insidepixce
+
+
 # Uncomment the below line and set the tracking ID for enabling Google Analytics
 # google_analytics: 
 
@@ -46,3 +50,8 @@ defaults:
       category: conflict
       tag: 
         - react
+
+disqus:
+  comments: true
+  shortname: "mylog-3" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+  
