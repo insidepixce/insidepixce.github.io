@@ -162,13 +162,13 @@ function App() {
 ‘headerTintColor’: 헤더 아이콘 및 텍스트의 샞상을 설정한다
 
 ‘headerTitleStyle” : 헤더 제목의 스타일 설정
-
+```
 -   **‘createBottomTabNavigator’ 및 ‘createMaterialBottomTabNavigator’**
-
+```
 탭 네비게이터 생성 시 다양한 옵션을 사용하여 탭의 모양과 동작을 조절할 수 있다. 예를 들어 , ‘ tabBarIcon’을 사용하여 각 탭에 아이콘을 지정하거나, ‘tabBarOptions’를 사용하여 탭바의 스타일을 설정할 수 있다.
-
+```
 -   **‘createDrawerNavigator’:**
-
+```
 드로어 네비게이터를 생성할 때 ‘drawerContent’나 ‘drawerStyle’등을 사용하여 드로어의 내용과 스타일을 조절할 수 있다
 
 # 데이터베이스 충돌
