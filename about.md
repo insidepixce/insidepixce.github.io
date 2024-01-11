@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-# 프론트 개발자 생존기
+<div align="center">
 
 - **20.10 ~ 23.01:** 프론트앤드 근무
 - **23.01 ~ 23.08:** 소프트웨어학과 자퇴
@@ -12,5 +12,6 @@ permalink: /about/
 - **230326 ~ 230917:** 연애를 마치고
 - **230918:** 결혼!
 
+</div>
 **Instagram:** [outsidepixce](https://www.instagram.com/outsidepixce/)  
 **Email:** [insidepixce@gmail.com](mailto:insidepixce@gmail.com)
