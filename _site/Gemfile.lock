@@ -76,8 +76,8 @@ GEM
     webrick (1.8.1)
 
 PLATFORMS
-  arm64-darwin
-  x86_64-darwin
+  arm64-darwin-22
+  ruby
 
 DEPENDENCIES
   bundler (~> 2.0)

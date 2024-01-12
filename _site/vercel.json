@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "_site/**/*",
+        "use": "@vercel/static-build",
+        "config": { "zeroConfig": true }
+      }
+    ],
+    "functions": { "api/**/*.js": { "runtime": "js-node@14" } },
+    "routes": [{ "handle": "filesystem" }, { "src": "/.*", "dest": "/index.html" }]
+  }
+  
