@@ -1,16 +1,17 @@
 {
-    "version": 2,
     "builds": [
       {
-        "src": "_site/**/*",
-        "use": "@vercel/static-build",
-        "config": {
-          "zeroConfig": true,
-          "buildCommand": "bundle exec jekyll build"  
-        }
+        "src": "_site/**",
+        "use": "@now/static"
+      },
+      {
+        "src": "**/*",
+        "use": "@now/ruby",
+        "config": { "maxLambdaSize": "15mb" }
       }
     ],
-    "functions": { "api/**/*.js": { "runtime": "js-node@14" } },
-    "routes": [{ "handle": "filesystem" }, { "src": "/.*", "dest": "/index.html" }]
+    "routes": [
+      { "src": "/(.*)", "dest": "/$1" }
+    ]
   }
   
