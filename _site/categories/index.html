@@ -14,17 +14,19 @@
 <meta property="og:locale" content="en" />
 <meta name="description" content="살아가는 방법을 다룹니다" />
 <meta property="og:description" content="살아가는 방법을 다룹니다" />
+<link rel="canonical" href="http://localhost:4000/categories/" />
+<meta property="og:url" content="http://localhost:4000/categories/" />
 <meta property="og:site_name" content="Insidepixce" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Categories" />
 <meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"insidepixce"},"description":"살아가는 방법을 다룹니다","headline":"Categories","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"/logo.png"},"name":"insidepixce"},"url":"/categories/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"insidepixce"},"description":"살아가는 방법을 다룹니다","headline":"Categories","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/categories/"}</script>
 <!-- End Jekyll SEO tag -->
 
 
-<link type="application/atom+xml" rel="alternate" href="/feed.xml" title="Insidepixce" />
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Insidepixce" />
 
 
 
@@ -37,6 +39,25 @@
 <link rel="stylesheet" href="/assets/css/skin.css">
 
 <!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
 
 <!-- End selecting skin -->
 
@@ -103,7 +124,7 @@
       <div class="site-body wrapper">
         <aside class="site-sidebar" id="site-sidebar">
           
-            <div class="sidebar-section"><img src="/logo.png" class="author-avatar u-photo align-center" alt="insidepixce">
+            <div class="sidebar-section"><img src="/logo.jpeg" class="author-avatar u-photo align-center" alt="insidepixce">
     <p class="profile-name" style="text-align: center; font-size: 1.5em; margin-top: 5px;">insidepixce(인픽)</p>
     <p style ="text-align: center; font-size: 1.1em;">한 여자가 개발자 남편에게 심부름을 시켰다. 빵 두 개 사오고 세일하는 계란 있음 세 개 사와. 남편이 마트에 가니 계란이 세일하고 있었다. 남편은 빵 세 개를 구입하였다.  </p>
   </div>
@@ -152,15 +173,15 @@
 <div class="taxonomies-wrapper">
   <ul class="taxonomies"><li><a class="taxonomy" href="/categories/#all">
               <span>all</span>
-              <span class="taxonomy-count">6</span>
+              <span class="taxonomy-count">10</span>
+            </a>
+          </li><li><a class="taxonomy" href="/categories/#til">
+              <span>TIL</span>
+              <span class="taxonomy-count">4</span>
             </a>
           </li><li><a class="taxonomy" href="/categories/#c-s">
               <span>c/s</span>
               <span class="taxonomy-count">3</span>
-            </a>
-          </li><li><a class="taxonomy" href="/categories/#til">
-              <span>TIL</span>
-              <span class="taxonomy-count">1</span>
             </a>
           </li><li><a class="taxonomy" href="/categories/#react">
               <span>react</span>
@@ -170,11 +191,23 @@
               <span>node.js</span>
               <span class="taxonomy-count">1</span>
             </a>
+          </li><li><a class="taxonomy" href="/categories/#cs">
+              <span>CS</span>
+              <span class="taxonomy-count">1</span>
+            </a>
           </li></ul>
 </div>
 
 <h2 id="all">all</h2>
       <ul class="post-list-by-taxonomy"><li>
+            <time datetime="">2024-01-17</time> &raquo; <a href="/til/all/2024/01/17/Namechange.html">20240117 TIL</a>
+          </li><li>
+            <time datetime="">2024-01-16</time> &raquo; <a href="/til/all/2024/01/16/Today.html">20240116 TIL</a>
+          </li><li>
+            <time datetime="">2024-01-15</time> &raquo; <a href="/til/all/2024/01/15/TIL.html">20240115 TIL</a>
+          </li><li>
+            <time datetime="">2024-01-15</time> &raquo; <a href="/cs/all/2024/01/15/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.html">배정밀도 64비트 부동소수점</a>
+          </li><li>
             <time datetime="">2024-01-12</time> &raquo; <a href="/c/s/all/2024/01/12/%EB%B3%80%EC%88%98%EC%97%90%EC%84%9C%EC%8A%A4%EC%99%80%ED%95%91.html">변수로 시작해 스와핑기법까지</a>
           </li><li>
             <time datetime="">2024-01-12</time> &raquo; <a href="/c/s/all/2024/01/12/%EB%8F%99%EA%B8%B0%EB%B9%84%EB%8F%99%EA%B8%B0.html">동기비동기 한판정리</a>
@@ -184,6 +217,16 @@
             <time datetime="">2024-01-12</time> &raquo; <a href="/node.js/all/2024/01/12/multer.html">multer</a>
           </li><li>
             <time datetime="">2024-01-12</time> &raquo; <a href="/react/all/2024/01/12/itsone.html">암호화 키 오류</a>
+          </li><li>
+            <time datetime="">2024-01-12</time> &raquo; <a href="/til/all/2024/01/12/TIL.html">20240110TIL</a>
+          </li></ul>
+      <a href="#" onclick="backToTop()" class="back-to-top">Top &#8648;</a><h2 id="til">TIL</h2>
+      <ul class="post-list-by-taxonomy"><li>
+            <time datetime="">2024-01-17</time> &raquo; <a href="/til/all/2024/01/17/Namechange.html">20240117 TIL</a>
+          </li><li>
+            <time datetime="">2024-01-16</time> &raquo; <a href="/til/all/2024/01/16/Today.html">20240116 TIL</a>
+          </li><li>
+            <time datetime="">2024-01-15</time> &raquo; <a href="/til/all/2024/01/15/TIL.html">20240115 TIL</a>
           </li><li>
             <time datetime="">2024-01-12</time> &raquo; <a href="/til/all/2024/01/12/TIL.html">20240110TIL</a>
           </li></ul>
@@ -195,10 +238,6 @@
           </li><li>
             <time datetime="">2024-01-12</time> &raquo; <a href="/c/s/all/2024/01/12/%EB%8F%99%EA%B8%B0%EB%B9%84%EB%8F%99%EA%B8%B0-copy.html">데이터 타입은 모르겠고 오류를 안 띄우려면</a>
           </li></ul>
-      <a href="#" onclick="backToTop()" class="back-to-top">Top &#8648;</a><h2 id="til">TIL</h2>
-      <ul class="post-list-by-taxonomy"><li>
-            <time datetime="">2024-01-12</time> &raquo; <a href="/til/all/2024/01/12/TIL.html">20240110TIL</a>
-          </li></ul>
       <a href="#" onclick="backToTop()" class="back-to-top">Top &#8648;</a><h2 id="react">react</h2>
       <ul class="post-list-by-taxonomy"><li>
             <time datetime="">2024-01-12</time> &raquo; <a href="/react/all/2024/01/12/itsone.html">암호화 키 오류</a>
@@ -206,6 +245,10 @@
       <a href="#" onclick="backToTop()" class="back-to-top">Top &#8648;</a><h2 id="node-js">node.js</h2>
       <ul class="post-list-by-taxonomy"><li>
             <time datetime="">2024-01-12</time> &raquo; <a href="/node.js/all/2024/01/12/multer.html">multer</a>
+          </li></ul>
+      <a href="#" onclick="backToTop()" class="back-to-top">Top &#8648;</a><h2 id="cs">CS</h2>
+      <ul class="post-list-by-taxonomy"><li>
+            <time datetime="">2024-01-15</time> &raquo; <a href="/cs/all/2024/01/15/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.html">배정밀도 64비트 부동소수점</a>
           </li></ul>
       <a href="#" onclick="backToTop()" class="back-to-top">Top &#8648;</a><script>
   function backToTop() {

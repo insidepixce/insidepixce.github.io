@@ -8,7 +8,7 @@ tags:
   - 패스파인더
 author: insidepixce
 show_excerpts: true
-date: 2024-01-17 21:27:00 +0900
+date: 2024-01-17 15:30:00 +0900
 disqus: true
 paginate: true
 disqus-count-scr: true

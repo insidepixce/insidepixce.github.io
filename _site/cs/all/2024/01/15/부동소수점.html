@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>배정밀도 64비트 부동소수점 | Insidepixce</title>
+<meta name="generator" content="Jekyll v3.9.4" />
+<meta property="og:title" content="배정밀도 64비트 부동소수점" />
+<meta name="author" content="insidepixce" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="책을 보다가 의문점이 생겼다. ECMAScript에 따르면, 숫자 타입의 값은 배정밀도 64비트 부동소수점 형식을 따른다고 하는데, 이 배정밀도 64비트 부동소수점 형식이 무엇인가?" />
+<meta property="og:description" content="책을 보다가 의문점이 생겼다. ECMAScript에 따르면, 숫자 타입의 값은 배정밀도 64비트 부동소수점 형식을 따른다고 하는데, 이 배정밀도 64비트 부동소수점 형식이 무엇인가?" />
+<link rel="canonical" href="http://localhost:4000/cs/all/2024/01/15/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.html" />
+<meta property="og:url" content="http://localhost:4000/cs/all/2024/01/15/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.html" />
+<meta property="og:site_name" content="Insidepixce" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-15T16:42:00+09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="배정밀도 64비트 부동소수점" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"insidepixce"},"dateModified":"2024-01-15T16:42:00+09:00","datePublished":"2024-01-15T16:42:00+09:00","description":"책을 보다가 의문점이 생겼다. ECMAScript에 따르면, 숫자 타입의 값은 배정밀도 64비트 부동소수점 형식을 따른다고 하는데, 이 배정밀도 64비트 부동소수점 형식이 무엇인가?","headline":"배정밀도 64비트 부동소수점","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/cs/all/2024/01/15/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.html"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/cs/all/2024/01/15/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Insidepixce" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+  <script>
+    const hour = (new Date()).getHours();
+    let filename = "";
+    if (hour >= 5 && hour < 7) {
+      filename = "/assets/css/skin-sunrise.css";
+    } else if (hour >= 7 && hour < 17) {
+      filename = "/assets/css/skin-daylight.css";
+    } else if (hour >= 17 && hour < 19) {
+      filename = "/assets/css/skin-sunset.css";
+    } else {
+      filename = "/assets/css/skin-midnight.css";
+    }
+    const elem = document.createElement("link");
+    elem.setAttribute("rel", "stylesheet");
+    elem.setAttribute("type", "text/css");
+    elem.setAttribute("href", filename);
+    document.getElementsByTagName("head")[0].appendChild(elem);
+  </script>
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Insidepixce</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <h3 class="toc-title">Table of Contents</h3>
+<nav class="toc-nav">
+  <ul class="toc">
+  <li><a href="#그래서">그래서?</a></li>
+</ul>
+
+</nav>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">배정밀도 64비트 부동소수점</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-01-15T16:42:00+09:00" itemprop="datePublished">
+        Jan 15, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">insidepixce</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>책을 보다가 의문점이 생겼다. ECMAScript에 따르면,  숫자 타입의 값은 배정밀도 64비트 부동소수점 형식을 따른다고 하는데, 이 배정밀도 64비트 부동소수점 형식이 무엇인가?</p>
+
+<p>이는 모든 수를 실수로 처리하며, 정수만 표현하기 위해 데이터 타입이 별도로 존재하지 않는다는 말이다. 이게 무슨 말인지 헷갈린다면, 다음 실습을 통해 한번 보도록 하자.</p>
+
+<ul>
+  <li>어, 왜 0.3 그대로 나오지 않지?</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>원래같으면 0.1 + 0.2 = 0.3 이라고 예측했을 것이다. 하지만, 우리의 자바스크립트 친구는 정말 웃기게도 다음과 같은 값을 내뱉는다.</p>
+
+<p><img src="https://velog.velcdn.com/images/insidepixce/post/088f1bd5-5a1d-4094-9d8a-f9b185ef5c9c/image.png" alt="" /></p>
+
+<p>자바스크립트는 7가지의 데이터 타입을 가지고 있고, 이는 원시 타입, 객체 타입으로 구분된다. 이떄, 숫자 타입은 정수, 부동 소수점, 그리고 NAN(Not A Number)과 infinirty 등을 표현할 수 있다. 정수는 부호 있는 정수와 부호 없는 정수로 나뉘며 , 부동소수점은 실수 값을 표현한다.</p>
+
+<p>부동소수점은 컴퓨터에서 실수를 표현하는 방식 중 하나이다. 부동소수점은 소수점을 고정된 위치에 두는 대신, 가수부와 지수부로 숫자를 표현한다</p>
+
+<p>가수부는 실제 숫자의 유효 숫자를 나타내는 부분이며, 지수부는 소수점의 위치를 표현하는 부분이다. 이 두 부분은 함께 사용되어 실수 값을 나타낸다.</p>
+
+<p>부동소수점은 소수점을 가지는 숫자를 나타낼 때 사용되는데, 자바스크립트에서 이는 64비트 (double-precision) 형식으로 표현되며, IEEE 754 표준에 따라 정의된다.</p>
+
+<aside>
+💡  IEEE 754 : 부동소수점 숫자를 표현하기 위한 국제 표준
+
+</aside>
+
+<p>부동소수점은 가수부와 지수부로 나누어진다.</p>
+
+<p>예를 들어 0,004의 경우, 소수점 이하 자릿수가 있는 숫자이므로 부동소수점으로 표현된다.</p>
+
+<p>여기서 정수 부분은 0이고, 소수 부분은 004이다. 소수 부분은 이진 소수로 표현되는데, 정확한 값은 0.004의 이진 표현이 된다. 주의할 점은, 0.004와 같은 소수를 정확하게 표현하려면 부동소수점 형식의 제약 사항을 고려해야 한다. 이진 부동소수점 형식에서는 모든 소수를 정확하게 표현할 수 없기에 위와 같은 에러가 발생하는 것이다.</p>
+
+<p>일반적으로 많은 경우에 잘 작동하지만, 떄로는 정확한 결과를 보장하지 못하는 반올림 오차가 발생하기도 한다.</p>
+
+<ul>
+  <li>부동소수점을 사용하기 떄문에 반올림 오차가 생기는 건 알겠어! 근데 어떤 과정으로 그렇게 되는 건데?</li>
+</ul>
+
+<p>→ 부동소수점 숫자를 이진 부동소수점으로 표현하는 과정에서 근사값이 사용되기 떄문이다.</p>
+
+<p>1/3을 십진수로 정확히 표현하려면 0.33333…과 같이 무한 소수로 표현해야 한다. 이를 피하기 위해, 반올림 값을 가지는 것이다.</p>
+
+<p>아까 들었던 예시 코드를 보면서 어떤 과정을 거치는지 알아보자.</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span> <span class="p">(</span><span class="mf">0.1</span><span class="o">+</span><span class="mf">0.2</span> <span class="o">==</span> <span class="mf">0.3</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ol>
+  <li>0.1을 이진 부동소수점으로 변환 :</li>
+</ol>
+
+<p>0.0001100110011001100110011001100110011001100110011…</p>
+
+<p>소수 부분인 0.1을 이진 분수로 변환하면 무한 소수가 된다.</p>
+
+<p>그러나 64비트 double-precision 형식에서는 가수 부분에만 53비트가 할당되므로, 가장 가까운 근사값을 사용한다 → 더욱 공부해볼 주제. 나도 확실히 이해하지 못했다.</p>
+
+<ol>
+  <li>0.2을 이진 부동소수점으로 변환:
+    <ul>
+      <li>0.0011001100110011001100110011001100110011001100110…</li>
+      <li>마찬가지로, 소수 부분인 0.2를 이진 분수로 변환하면 무한 소수가 된다</li>
+      <li>가수 부분은 0.0011001100110011001100110011001100110011001100110…과 같은 근사값을 사용한다</li>
+    </ul>
+  </li>
+  <li>두 숫자를 더함:
+    <ul>
+      <li>0.0001100110011001100110011001100110011001100110011… (0.1의 근사값)</li>
+      <li>0.0011001100110011001100110011001100110011001100110… (0.2의 근사값)</li>
+    </ul>
+  </li>
+</ol>
+
+<p>→0.0100110011001100110011001100110011001100110011001…</p>
+
+<p>결과로 나온 0.30000000000000004는 이진 부동소수점으로 근사된 값이다. 이 값은 정확한 0.3이 아니며, 반올림 오차가 발생한 것이다..</p>
+
+<p>IEEE 754 표준에서는 부호(S, sign), 지수(E, exponent), 가수(M, mantissa) 3개의 비트 그룹으로 숫자를 표한다. 각각의 패턴은 다음의 형식에 따라 수를 표현한다.</p>
+
+<p>Value =(−1)×1.M×{2^(E−bias)} (1)</p>
+
+<p>S는 부호를 나타내고. S=0은 양수를, S=1은 음수를 나타내. M은 가수를 나타내며, 1.M으로 처리하여 모든 값을 얻는다. 이는 각 부동소수점 숫자에 대한 가수 비트 패턴을 고유하게 만들어준다. E는 지수를 나타내며, excess or biased 인코딩 규칙을 채택한다. 만약 지수 E를 표현하기 위해 e 비트가 사용되었다면, (2^(e−1)−bias)이 그 지수에 대한 2의 보수값에 더해져서 excess representation(초과 표현)을 나타낸다.</p>
+
+<p>부동소수점에서는 정규화된 표현을 만족하는 가수는 1.XX 형태이므로, 부동소수점을 표현할 때 ‘1’을 생략할 수 있다. 이러한 제한을 만족하는 수를 정규화된 수(normalized number)라고 한다.</p>
+
+<h2 id="그래서">그래서?</h2>
+
+<p>이에 대한 명확한 이해는 특히 큰 수의 합산이 필요한 수치 알고리즘에서 중요하다. 행렬 곱셈과 같은 연산은 여러 입력 행렬 요소들의 곱을 합산하는 내적 연산을 필요로 한다. 이론적으로, 덧셈의 결합법칙에 따라 이 값들의 합산 순서는 결과에 영향을 미치지 않아야 하지만, 실제로는 부동 소수점의 정밀도 부족으로 인해 순서가 결과의 정확성에 영향을 미칠 수 있다.</p>
+
+<p>5-비트 표현을 사용하여 4개의 수를 더하는 예를 생각해 보자. 만약 이러한 숫자들이 순차적으로 더해진다면, 중간 과정에서 일부 수치가 반올림되어 결과에 영향을 미치게 된다. 이 경우, 순차적으로 더해진 결과는 1.01×2^1이 된다.</p>
+
+<p>반면에, 이 덧셈이 병렬 알고리즘에서 수행되면 결과는 다르게 나온다. 각 쌍의 합계는 병렬로 계산되고, 마지막에 두 합계가 더해진다. 하지만 이 결과는 순차적인 덧셈과 다르게 나온다. 이는 병렬 연산에서의 부동 소수점 연산의 정밀도가 결과에 영향을 미치기 때문이다. 이런 현상은 부동 소수점 연산의 복잡성을 잘 보여주는 예이다.</p>
+
+<p>이러한 문제를 최소화하는 방법 중 하나는 Reduction 연산을 수행하기 전에 데이터를 정렬하는 것이다. 즉, 값을 오름차순으로 정렬하여 합산할 때, 서로 가까운 값들끼리 더하는 것이다. 이는 병렬 알고리즘에서 특히 유용하며, 이로 인해 동일한 그룹 내에서는 덧셈의 결과가 더욱 정확해진다.</p>
+
+<p>예를 들어, 앞서 언급한 4개의 숫자를 오름차순으로 정렬하면 다음과 같이 된다: 1.00×2^(-2), 1.00×2^(-2), 1.00×2^0, 1.00×2^0. 이제 이 값들을 순차적으로 더하면, 같은 그룹에 있는 값들은 비슷한 크기를 가지므로 정확도가 향상된다</p>
+
+<p>따라서 병렬 수치 알고리즘에서는 입력 데이터를 미리 정렬하는 것이 일반적이다. 이렇게 함으로써 병렬 연산에서 발생할 수 있는 부동 소수점 오류를 최소화하고, 결과의 정확성을 높일 수 있다.</p>
+
+<p>이런 방식은 부동 소수점 연산의 정확도 문제를 완전히 해결할 수는 없지만, 실제 애플리케이션에서는 효과적인 해결책을 제공할 수 있다. 부동 소수점 연산을 수행할 때는 항상 정밀도 오류를 고려하고, 가능한 경우 데이터를 미리 정렬하는 것이 좋다.</p>
+
+<p>해보면, 결과는 1.00×2^1이 된다. 이것은 병렬 덧셈의 결과와 일치한다.</p>
+
+<p>그럼에도 불구하고, 이런 방법으로도 오차를 완전히 제거할 수는 없다. 이는 부동소수점 연산이 항상 어떤 정밀도로 제한되기 때문이다. 따라서, 연산의 결과는 항상 정확하지 않을 수 있다는 것을 항상 숙지하고 있어야 할 것 같다.</p>
+
+<p>부동소수점의 불완전함에 대한 완전한 이해는 데이터 과학자, 프로그래머, 엔지니어 등 많은 분야의 전문가들에게 매우 중요하다. 이는 과학적, 엔지니어링 계산의 정확성을 보장하는데 필수적이며, 이는 종종 연구 결과의 정확성과 신뢰성에 직접적인 영향을 미친다.</p>
+
+<p>참고자료 https://junstar92.tistory.com/253</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#cs">CS</a>
+            </li>
+          
+            <li class="post-category">
+              
+              <a href="/categories/#all">all</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#react">react</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/c/s/all/2024/01/12/%EB%B3%80%EC%88%98%EC%97%90%EC%84%9C%EC%8A%A4%EC%99%80%ED%95%91.html">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 변수로 시작해 스와핑기법까지
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/til/all/2024/01/15/TIL.html">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            20240115 TIL
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/cs/all/2024/01/15/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.html';
+        this.page.identifier = '/cs/all/2024/01/15/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90.html';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mylog-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  
+
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 insidepixce; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>살아가는 방법을 다룹니다</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
