@@ -217,6 +217,25 @@ CMD ["/usr/sbin/sshd", "-D"]
 Do you want to continue? [Y/n]
 ```
 이걸 모두 건너뛴다는 것이다. -y라고 했기 떄문에 yes로 설정해놓는다는 이야기.
+이걸 안해놓으면 대참사가 일어난다 
+```
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  ncurses-term openssh-sftp-server
+Suggested packages:
+  ssh-askpass molly-guard rssh monkeysphere
+The following NEW packages will be installed:
+  ncurses-term openssh-server openssh-sftp-server
+0 upgraded, 3 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,238 kB of archives.
+After this operation, 5,872 kB of additional disk space will be used.
+Do you want to continue? [Y/n]
+```
+이걸 하나하나 다 y를 눌러야 한다는 점. 
+
+
 3. RUN echo 'root:비밀번호' | chpasswd
 - 루트 사용자 계정의 비밀번호를 설정한다. 나는 귀찮아서 그냥 password를 비밀번호로 해두었다!
 4. RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config\
@@ -233,5 +252,5 @@ Do you want to continue? [Y/n]
 7. cmd ["/usr/sbin/sshd", "-D"]
 - ssh 서비스를 데몬 모드로 시작한다. `cmd`지시어는 컨테이너가 시작될 때 실행할 명령어를 지정한다. 여기서는 `sshd`를 데몬 모드(`-d`)로 실행하여 컨테이너가 종료되지 않도록 한다. 
 
-이 도커파일은 우ß분투 기반의 도커 이미지를 빌드하고 `openssh` 서버가 설치되고 설정된 컨테이너를 실행할 수 있다. ssh 를 통해 루트 계정으로 접속할 수 있도록 설정되어 있으며 , 포트 22를 외부에 올려놔서 ssh 접속을 허용한다 
+이 도커파일은 우분투 기반의 도커 이미지를 빌드하고 `openssh` 서버가 설치되고 설정된 컨테이너를 실행할 수 있다. ssh 를 통해 루트 계정으로 접속할 수 있도록 설정되어 있으며 , 포트 22를 외부에 올려놔서 ssh 접속을 허용한다 
 
