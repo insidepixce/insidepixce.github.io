@@ -310,6 +310,16 @@ vim에 접속한 후 i를 누르면
 
 <img width="597" alt="스크린샷 2024-07-07 오전 6 15 21" src="https://github.com/insidepixce/insidepixce.github.io/assets/126161716/458f2aa2-6653-4e57-92d6-8e9c801dcea1">
 이해를 돕기 위한 주석을 전부 제거하고 입력해주었다. 
+```
+FROM ubuntu:latest
+RUN apt update && apt install -y openssh-server
+RUN echo 'root:password' | chpasswd
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+RUN mkdir -p /run/sshd
+EXPOSE 22
+CMD ["/usr/sbin/sshd", "-D"]
+```
+
 esc키를 누르고 :wq를 입력후 나오면 된다
 
 ---
@@ -401,3 +411,7 @@ docker build -t my-custom-image .
 docker-run -it my-custom-image
 ```
 >여기서 복습 한번 해보자면 it는 어떤 어떤 옵션을 결합한 명령어였을까? 컨테이너의 표준 입력을 활성화하여 터미널 입력을 받을 수 있게 하고, 터미널을 할당하여 컨테이너 내부에서 터미널 세션을 사용할 수 있게한다고 나와있었다. 이 옵션은 터미널 사용자 인터페이스를 제공하는데 필요한 옵션이다. 까먹지 말자 ! 하나씩 기억해 나가는거야. 
+### 요약
+1. `Dockerfile` 생성 및 작성
+2. `docker build` 명령어로 이미지 빌드
+3. `docker run` 명령어로 컨테이너 실행
