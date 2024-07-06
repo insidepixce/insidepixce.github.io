@@ -141,3 +141,97 @@ docker ps -f ancestor=ubuntu
 ## dockerfile 작성
 
 ### 1. 터미널을 열고 작업할 디렉토리 만들기 
+아까 공부한 대로 
+```
+docker run -it ubuntu /bin/bash
+```
+이 명령어를 통해 서버를 시작해주면 
+
+<img width="936" alt="스크린샷 2024-07-07 오전 5 28 09" src="https://github.com/insidepixce/insidepixce.github.io/assets/126161716/2309cf7d-9f05-4afa-bc3e-76a14a66203b">
+이러한 프로세스와 함께 뭐가 많이 뜰것이다. 
+
+mkdir (디렉토리 이름)
+```
+cd (디렉토리 이름)
+```
+<img width="468" alt="스크린샷 2024-07-07 오전 5 31 48" src="https://github.com/insidepixce/insidepixce.github.io/assets/126161716/83692fec-9bfc-4c9a-b2d4-9c660d81cc67">
+
+프론트앤드 개발할때 터미널에서 사용하던 명령어와 같아서 보기가 좀 편했다.
+cd는 해당 디렉토리로 이동하라는 말이였고, mkdir은 해당 디렉토리를 생성하라는 이야기이다. 
+이 상태에서 도커파일을 꺼내보자. 
+
+### 2. 도커파일 생성
+```
+nano Dockerfile
+```
+<img width="570" alt="스크린샷 2024-07-07 오전 5 37 15" src="https://github.com/insidepixce/insidepixce.github.io/assets/126161716/0ff9fd0b-441b-42a6-bab8-f430a1a69e62">
+nano가 안 깔려있어서 이렇게 뜬다
+
+```
+vi Dockerfile
+```
+둘 중 하나를 선택해서 하면 되는데, 나는 앞서 vim만 설치해두었다. 
+그래서 vi를 사용하여 진행해보려고 하였으나 nano도 찍먹해보고싶어서 설치했다 
+타 개발자분들을 봤을때 vim을 많이 사용하시는것 같아서 앞으로는 vim 위주로 사용햐보려고 한다 
+
+
+<br>
+
+***nano 설치하기***
+```
+apt update
+apt install -y nano
+```
+
+### 3. dockerfile에 이걸 복사붙여넣기 추가한다. 
+언젠가는 나도 이 내용을 하나하나 만져가면서 이해하는 날이 올거라 믿는다. 일단은 주어진 내용만으로도 열심히 이해해보도록 하자 
+```
+# 최신 Ubuntu 이미지를 기반으로 사용
+FROM ubuntu:latest
+
+# 패키지 목록을 업데이트하고 OpenSSH 서버를 설치
+RUN apt update && apt install -y openssh-server
+
+# 루트 비밀번호 설정
+RUN echo 'root:password' | chpasswd
+
+# SSH를 통해 루트 로그인 허용
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config
+
+# 권한 분리 디렉토리 생성
+RUN mkdir -p /run/sshd
+
+# 포트 22 노출
+EXPOSE 22
+
+# SSH 서비스를 시작
+CMD ["/usr/sbin/sshd", "-D"]
+```
+
+1. from ubuntu 
+- 최신 우분투 이미지를 기반으로 사용한다는 이야기다. `from` 지시어는 docker 이미지의 기본 이미지를 지정한다
+2. run apt update && apt install -y openssh-server
+-  `openssh-server`패키지를 설치한다. `apt update`는 패키지 목록을 업데이트하고 `apt-install -y openssh-server` 는 상호작용 없이 openSSH 서버를 설치한다...
+이때 상호작용 없이라는 말은 예를 들어 
+```
+Do you want to continue? [Y/n]
+```
+이걸 모두 건너뛴다는 것이다. -y라고 했기 떄문에 yes로 설정해놓는다는 이야기.
+3. RUN echo 'root:비밀번호' | chpasswd
+- 루트 사용자 계정의 비밀번호를 설정한다. 나는 귀찮아서 그냥 password를 비밀번호로 해두었다!
+4. RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config\
+- ssh 설정 파일 (/etc/ssh/sshd_config)에서 PermitRootLogin 설정을 변경하여 루트 로그인을 허용한다.
+<br>
+- sed -i 명령어는 파일을 직접 수정하는데, #PermitRootLogin prohibit-password를 PermitRootLogin yes로 바꾼다
+
+5. RUN mkdir -p /run/sshd
+- ssh 권한 분리 디렉토리를 생성한다.
+
+6. expose 22
+- docker 컨테이너가 사용하는 포트 22를 올린다. expose 지시어는 docker 컨테이너가 외부와 통신하기 위해 사용하는 포트를 지정한다
+
+7. cmd ["/usr/sbin/sshd", "-D"]
+- ssh 서비스를 데몬 모드로 시작한다. `cmd`지시어는 컨테이너가 시작될 때 실행할 명령어를 지정한다. 여기서는 `sshd`를 데몬 모드(`-d`)로 실행하여 컨테이너가 종료되지 않도록 한다. 
+
+이 도커파일은 우ß분투 기반의 도커 이미지를 빌드하고 `openssh` 서버가 설치되고 설정된 컨테이너를 실행할 수 있다. ssh 를 통해 루트 계정으로 접속할 수 있도록 설정되어 있으며 , 포트 22를 외부에 올려놔서 ssh 접속을 허용한다 
+
