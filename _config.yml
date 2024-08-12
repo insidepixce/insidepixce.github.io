@@ -1,11 +1,14 @@
 title: Insidepixce inworld 
 description: 나의 기막힌 성장기
 author: insidepixce
-avatar: /logo.png
+avatar: insidepixce
 email: insidepixce@gmail.com
 locale: "ko-KR"
+location: korea, daegu
+skin: sunrise
 name: Park Gyodam
 masthead_title: "하고싶은 공부만 합니다"
+subscribe : true
 
 plugins:
   - jekyll-seo-tag
