@@ -3,9 +3,9 @@ pin: true
 layout: post
 title: "맥에서 리눅스 환경 구축하기- 도커 기본 설정값 1편"
 categories:
-  - knockon
+  - sec
 tags:
-  - knockon
+  - sec
 author: insidepixce
 show_excerpts: true
 date: 2024-07-06 11:00:00 +0900
