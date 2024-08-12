@@ -3,6 +3,9 @@ description: 나의 기막힌 성장기
 author: insidepixce
 avatar: /logo.png
 email: insidepixce@gmail.com
+locale: "ko-KR"
+name: Park Gyodam
+masthead_title: "하고싶은 공부만 합니다"
 
 plugins:
   - jekyll-seo-tag
@@ -10,7 +13,10 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
-paginate: 10
+permalink: /:categories/:title/
+paginate: 15
+paginate_path: /page:num/
+timezone: GMT+9
 
 disqus:
   shortname: insidepixce
@@ -47,11 +53,16 @@ defaults:
       path: ""
       type: "posts"
     values:
-      category: all
-      tag: 
-        - react
+      layout: single
+      author_profile: true
+      read_time: true
+      comments: true
+      share: true
+      related: true
+
 
 disqus:
   comments: true
   shortname: "mylog-3" # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
-  
+
+
