@@ -1,5 +1,5 @@
-title: Insidepixce
-description: 살아가는 방법을 다룹니다
+title: Insidepixce inworld 
+description: 나의 기막힌 성장기
 author: insidepixce
 avatar: /logo.png
 email: insidepixce@gmail.com
@@ -10,7 +10,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
 
-paginate: 4
+paginate: 10
 
 disqus:
   shortname: insidepixce
