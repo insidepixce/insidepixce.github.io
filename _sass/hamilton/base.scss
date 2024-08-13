@@ -15,7 +15,7 @@ body, h1, h2, h3, h4, h5, h6, p, blockquote, li, a, span, div {
     font-style: normal !important;
   }
 html {
-  font-size:  $base-font-size !important;
+  font-size:  14px !important;
 
   @include media-query($on-small) {
     @include relative-font-size(0.89);
