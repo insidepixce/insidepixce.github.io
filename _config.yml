@@ -8,7 +8,7 @@ location: korea, daegu
 name: Park Gyodam
 masthead_title: "하고싶은 공부만 합니다"
 subscribe : true
-baseurl: insidepixce.site
+
 
 plugins:
   - jekyll-seo-tag
