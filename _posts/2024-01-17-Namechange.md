@@ -1,7 +1,7 @@
 ---
 pin: true
 layout: post
-title: "20240117 TIL"
+title: "프로토타입/동적/정적"
 categories:
   - TIL
 tags:
