@@ -6,6 +6,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 @import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -304,8 +305,18 @@ template {
 [hidden] {
   display: none; }
 
+.gowun-batang-regular {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal; }
+
+body, h1, h2, h3, h4, h5, h6, p, blockquote, li, a, span, div {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal; }
+
 html {
-  font-size: 14px; }
+  font-size: 10px; }
   @media screen and (max-width: 600px) {
     html {
       font-size: 0.89rem; } }
