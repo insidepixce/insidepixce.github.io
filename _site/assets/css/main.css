@@ -54,8 +54,9 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-  font-family: monospace, monospace;
-  /* 1 */
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
   font-size: 1em;
   /* 2 */ }
 
@@ -316,7 +317,7 @@ body, h1, h2, h3, h4, h5, h6, p, blockquote, li, a, span, div {
   font-style: normal !important; }
 
 html {
-  font-size: 10px; }
+  font-size: 13px; }
   @media screen and (max-width: 600px) {
     html {
       font-size: 0.89rem; } }
