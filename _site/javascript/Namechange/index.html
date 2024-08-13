@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>프로토타입/동적/정적 | Insidepixce inworld</title>
+<meta name="generator" content="Jekyll v3.9.4" />
+<meta property="og:title" content="프로토타입/동적/정적" />
+<meta name="author" content="insidepixce" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="description" content="프로토타입/동적/정적, 그리고 프로그램은 어떻게 실행되는지 얕지만 깊게 파헤쳐보았다." />
+<meta property="og:description" content="프로토타입/동적/정적, 그리고 프로그램은 어떻게 실행되는지 얕지만 깊게 파헤쳐보았다." />
+<link rel="canonical" href="http://localhost:4000/javascript/Namechange/" />
+<meta property="og:url" content="http://localhost:4000/javascript/Namechange/" />
+<meta property="og:site_name" content="Insidepixce inworld" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-01-16T21:30:00-09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="프로토타입/동적/정적" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"insidepixce"},"dateModified":"2024-01-16T21:30:00-09:00","datePublished":"2024-01-16T21:30:00-09:00","description":"프로토타입/동적/정적, 그리고 프로그램은 어떻게 실행되는지 얕지만 깊게 파헤쳐보았다.","headline":"프로토타입/동적/정적","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/Namechange/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/javascript/Namechange/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Insidepixce inworld" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Insidepixce inworld</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <h3 class="toc-title">Table of Contents</h3>
+<nav class="toc-nav">
+  <ul class="toc">
+  <li><a href="#프로토타입이란">📖프로토타입이란</a></li>
+  <li><a href="#프로토타입의-예시-코드를-둘러보자">🌐프로토타입의 예시 코드를 둘러보자</a></li>
+  <li><a href="#1선언-방식">📢1.선언 방식</a></li>
+  <li><a href="#️2-인스턴스-생성">⚒️2. 인스턴스 생성</a></li>
+  <li><a href="#3-동적성">😳3. 동적성</a></li>
+  <li><a href="#️1-이-코드의-실행결과는-무엇인가-">🖥️1. 이 코드의 실행결과는 무엇인가 ?</a></li>
+  <li><a href="#️2-이-조건에-맞춰-코드-써봐">🖥️2. 이 조건에 맞춰 코드 써봐.</a></li>
+  <li><a href="#️-객체-초기화">⭐️ 객체 초기화</a></li>
+  <li><a href="#️-new-키워드-사용">⭐️ <code class="language-plaintext highlighter-rouge">new</code> 키워드 사용</a></li>
+  <li><a href="#️-프로토타입-활용">⭐️ 프로토타입 활용</a></li>
+  <li><a href="#️-this-키워드">⭐️ <code class="language-plaintext highlighter-rouge">this</code> 키워드</a></li>
+  <li><a href="#️정적-페이지의-특징">⭐️정적 페이지의 특징</a></li>
+  <li><a href="#정적-페이지의-예시">🔥정적 페이지의 예시</a></li>
+  <li><a href="#️-동적-페이지의-특징">⭐️ 동적 페이지의 특징</a></li>
+  <li><a href="#동적-페이지의-예시">🔥동적 페이지의 예시</a></li>
+  <li><a href="#️자바스크립트">⭐️자바스크립트</a></li>
+  <li><a href="#️자바">⭐️자바</a></li>
+  <li><a href="#️파이썬">⭐️파이썬</a></li>
+  <li><a href="#️인터프리터">🖥️인터프리터</a></li>
+  <li><a href="#️컴파일러">🖥️컴파일러</a></li>
+  <li><a href="#️자바스크립트에서의-컴파일">⭐️자바스크립트에서의 컴파일</a></li>
+  <li><a href="#️자바에서의-컴파일">⭐️자바에서의 컴파일</a></li>
+  <li><a href="#️파이썬에서의-컴파일">⭐️파이썬에서의 컴파일</a></li>
+  <li><a href="#️자바스크립트-1">⭐️자바스크립트</a></li>
+  <li><a href="#️자바-1">⭐️자바</a></li>
+  <li><a href="#️파이썬-1">⭐️파이썬</a></li>
+  <li><a href="#️자바스크립트-동적-타입-언어">⭐️<strong>자바스크립트 (동적 타입 언어):</strong></a></li>
+  <li><a href="#️자바-정적-타입-언어">⭐️<strong>자바 (정적 타입 언어)</strong></a></li>
+  <li><a href="#️파이썬-동적-타입-언어">⭐️<strong>파이썬 (동적 타입 언어)</strong></a></li>
+</ul>
+
+</nav>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">프로토타입/동적/정적</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-01-16T21:30:00-09:00" itemprop="datePublished">
+        Jan 16, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">insidepixce</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>프로토타입/동적/정적, 그리고 프로그램은 어떻게 실행되는지 얕지만 깊게 파헤쳐보았다.</p>
+
+<h1 id="20230117">20230117</h1>
+
+<h1 id="프로토타입">🔥프로토타입</h1>
+
+<h3 id="프로토타입이란">📖프로토타입이란</h3>
+
+<p><strong>from book</strong></p>
+
+<ul>
+  <li>어떤 객체의 상위객체의 역할을 하는 객체</li>
+  <li>하위(자식) 객체에게 자신의 프로퍼티와 메서드를 상속하며,</li>
+  <li>프로토타입 객체의 프로퍼티나 메서드를 상속받은 하위 객체는 자신의 프로퍼티 또는 메서드인 것 처럼 자유롭게 사용할 수 있다 .</li>
+</ul>
+
+<h3 id="프로토타입의-예시-코드를-둘러보자">🌐프로토타입의 예시 코드를 둘러보자</h3>
+
+<ul>
+  <li>전체 코드</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Shape</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Shape</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getColor</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Color: </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="kd">function</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">color</span><span class="p">,</span> <span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Shape</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">color</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">Circle</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Shape</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+<span class="nx">Circle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">Circle</span><span class="p">;</span>
+<span class="nx">Circle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getArea</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Area: </span><span class="dl">"</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">**</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">};</span>
+<span class="kd">var</span> <span class="nx">redCircle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+<span class="nx">redCircle</span><span class="p">.</span><span class="nx">getColor</span><span class="p">();</span> 
+<span class="nx">redCircle</span><span class="p">.</span><span class="nx">getArea</span><span class="p">();</span>  
+</code></pre></div></div>
+
+<ol>
+  <li>부모 객체 생성자 함수</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Shape</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">color</span> <span class="o">=</span> <span class="nx">color</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>부모 객체의 프로토타입에 메서드 추가</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Shape</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getColor</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Color: </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">color</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>자식 객체 생성자 함수</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Circle</span><span class="p">(</span><span class="nx">color</span><span class="p">,</span> <span class="nx">radius</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">Shape</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">color</span><span class="p">);</span>
+  <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">=</span> <span class="nx">radius</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<ol>
+  <li>프로토타입 체인 설정</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Circle</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Shape</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+<span class="nx">Circle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">Circle</span><span class="p">;</span>
+</code></pre></div></div>
+
+<ol>
+  <li>자식 객체의 프로토입에 메서드 추가</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Circle</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">getArea</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Area: </span><span class="dl">"</span> <span class="o">+</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span> <span class="o">*</span> <span class="k">this</span><span class="p">.</span><span class="nx">radius</span> <span class="o">**</span> <span class="mi">2</span><span class="p">);</span>
+<span class="p">};</span>
+</code></pre></div></div>
+
+<ol>
+  <li>객체 생성</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">redCircle</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Circle</span><span class="p">(</span><span class="dl">"</span><span class="s2">red</span><span class="dl">"</span><span class="p">,</span> <span class="mi">5</span><span class="p">);</span>
+</code></pre></div></div>
+
+<ol>
+  <li>프로토타입 체인을 통한 상속을 확인하기 위해 호출해보기</li>
+</ol>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">redCircle</span><span class="p">.</span><span class="nx">getColot</span><span class="p">();</span>
+<span class="nx">redCircle</span><span class="p">.</span><span class="nx">getArea</span><span class="p">();</span>
+</code></pre></div></div>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">shape</code> 는 부모 객체의 생성자 함수이며, <code class="language-plaintext highlighter-rouge">circle</code>은 자식 객체의 생성자 함수이다 .</p>
+
+<p><code class="language-plaintext highlighter-rouge">circle</code> 는 <code class="language-plaintext highlighter-rouge">shape</code> 를 상속받아 <code class="language-plaintext highlighter-rouge">getColor</code> 메서드를 사용하고 동시에 <code class="language-plaintext highlighter-rouge">getArea</code> 메서드를 추가로 정의한다.</p>
+
+<p><code class="language-plaintext highlighter-rouge">redcircle</code> 객체는 <code class="language-plaintext highlighter-rouge">Circle</code> 의 인스턴스이면서 <code class="language-plaintext highlighter-rouge">Shape</code> 의 프로토타입을 따라간다</p>
+
+<p>이렇게 프로토타입 체인을 통해 상속된 메서드들을 호출할 수 있다</p>
+
+<hr />
+
+<aside>
+💡 자바스크립트는 프로토 타입 기반의 언어이지만 자바는 클래스 기반의 상속을 사용한다. 클래스로부터 객체를 생성하고 상속을 통해 클래스의 속성과 메서드를 자식 클래스에서 사용한다.
+
+</aside>
+
+<aside>
+💡 자바에서 클래스의 상속은 `extends` 키워들르 사용하여 이루어진다. 자식 클래스에서 추가적인 속성이나 메서드를 정의할 수 있따.
+
+</aside>
+
+<h2 id="클래스-기반-vs-프로토타입-객체-기반">🚀클래스 기반 vs 프로토타입 객체 기반</h2>
+
+<h3 id="1선언-방식">📢1.선언 방식</h3>
+
+<p>프로토타입 : 생성자 함수와 프로토타입 객체를 사용하여 상속을 선언함</p>
+
+<p>클래스:  클래스를 정의하고 <code class="language-plaintext highlighter-rouge">extends</code> 키워드를 사용하여 상속을 선언합니다</p>
+
+<h3 id="️2-인스턴스-생성">⚒️2. 인스턴스 생성</h3>
+
+<p>프로토타입 : <code class="language-plaintext highlighter-rouge">Object.create()</code>나 생성자 함수와 <code class="language-plaintext highlighter-rouge">new</code> 키워드를 사용하여 인스턴스를 생성함</p>
+
+<p>클래스 : 클래스 기반 언어에서는 클래스의 생성자를 호출하여 객체를 생성한다</p>
+
+<h3 id="3-동적성">😳3. 동적성</h3>
+
+<p>프로토타입 : 프로토타입 상속은 동적 (런타임에 프로토타입 객체를 변경할 수 있다)</p>
+
+<p>클래스 : 클래스 기반 언어에서는 정적 (클래스 정의 이후에는 변경 어려움)</p>
+
+<h2 id="️문제-만들기">⁉️문제 만들기</h2>
+
+<h3 id="️1-이-코드의-실행결과는-무엇인가-">🖥️1. 이 코드의 실행결과는 무엇인가 ?</h3>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Animal</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">eat</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">가 먹고있다</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">};</span>
+  
+  <span class="kd">function</span> <span class="nx">Dog</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">breed</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">Animal</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">name</span><span class="p">);</span>
+    <span class="k">this</span><span class="p">.</span><span class="nx">breed</span> <span class="o">=</span> <span class="nx">breed</span><span class="p">;</span>
+  <span class="p">}</span>
+  
+  <span class="nx">Dog</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="nb">Object</span><span class="p">.</span><span class="nx">create</span><span class="p">(</span><span class="nx">Animal</span><span class="p">.</span><span class="nx">prototype</span><span class="p">);</span>
+  <span class="nx">Dog</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="kd">constructor</span> <span class="o">=</span> <span class="nx">Dog</span><span class="p">;</span>
+  <span class="nx">Dog</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">bark</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">가 짖고있다</span><span class="dl">"</span><span class="p">);</span>
+  <span class="p">};</span>
+  
+  <span class="kd">var</span> <span class="nx">myDog</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Dog</span><span class="p">(</span><span class="dl">"</span><span class="s2">콜라</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">푸들</span><span class="dl">"</span><span class="p">);</span>
+  
+  <span class="nx">myDog</span><span class="p">.</span><span class="nx">eat</span><span class="p">();</span>
+  <span class="nx">myDog</span><span class="p">.</span><span class="nx">bark</span><span class="p">();</span>
+</code></pre></div></div>
+
+<p><strong>풀이 전 보고 가자</strong></p>
+
+<hr />
+
+<p>프로토타입 체인은 js에서 객체 간 상속을 구현하는 매커니즘이다. 각 개체는 자체 프로퍼티와 메서드를 가지고 있다.</p>
+
+<p>객체의 <code class="language-plaintext highlighter-rouge">prototype</code> 프로퍼티는 해당 객체가 상속받은 프로토타입 객체를 가리키며, 이 프로토타입 객체 또한 자신의 <code class="language-plaintext highlighter-rouge">prototype</code> 를 가리키는 식으로 연결된다.</p>
+
+<p>이런 방식으로 객체는 지속적으로 프로토타입을 따라가며 속성과 메서드를 찾아나간다</p>
+
+<hr />
+
+<p><strong>풀이</strong></p>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">mydog.eat()</code> 은 <code class="language-plaintext highlighter-rouge">myDog</code> 가 <code class="language-plaintext highlighter-rouge">Dog</code> 의 인스턴스이기 때문에 <code class="language-plaintext highlighter-rouge">Dog</code> 의 프로토타입 체인을 따라가면서 <code class="language-plaintext highlighter-rouge">Animal</code> 의 <code class="language-plaintext highlighter-rouge">eat</code>  메서드를 호출한다</p>
+
+<p>출력 :“콜라가 먹고있다”</p>
+
+<p><code class="language-plaintext highlighter-rouge">myDog.bark();</code> 은 <code class="language-plaintext highlighter-rouge">Dog</code> 의 고유 메서드인 <code class="language-plaintext highlighter-rouge">bark</code> 를 호출한다</p>
+
+<p>출력 : “콜라가 짖고있다”</p>
+
+<hr />
+
+<h3 id="️2-이-조건에-맞춰-코드-써봐">🖥️2. 이 조건에 맞춰 코드 써봐.</h3>
+
+<ol>
+  <li>조건
+    <ul>
+      <li>두 개의 생성자 함수가 주어집니다  (person, student)</li>
+      <li>person 생성자 함수는 name이라는 속성을 가지고 있습니다</li>
+      <li>student 생성자 함수는 school이라는 속성을 가지고 있습니다</li>
+      <li>student 객체는 person 객체를 상속받아야 함</li>
+    </ul>
+  </li>
+  <li>요구사항
+    <ul>
+      <li>person 생성자 함수를 직접 수정하지 않고 student 생성자 함수에서 pesron 객체를 상속받아야 함</li>
+      <li>student 생성자 함수로 생성된 객체는 name 과 school 속성을 가질 수 있어야 함</li>
+    </ul>
+  </li>
+  <li>예상되는 출력값
+    <ul>
+      <li>student 객체를 생성하여 name과 school 속성을 출력하면 각각의 값이 나와야 함</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="생성자-함수">🚀생성자 함수</h1>
+
+<h3 id="️-객체-초기화">⭐️ 객체 초기화</h3>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">this</code> 키워드를 사용하여 새로운 객체를 초기화함</li>
+  <li>생성자 함수를 호출하면  객체가 생성되고 이 객체는 생성자 함수 내부의 코드에 따라 속성/메서드로 초기화됨</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Person</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="nx">age</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="nx">name</span> <span class="p">;</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">age</span> <span class="o">=</span> <span class="nx">age</span> <span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">soojin</span><span class="dl">"</span><span class="p">,</span> <span class="mi">21</span><span class="p">);</span>
+
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="️-new-키워드-사용">⭐️ <code class="language-plaintext highlighter-rouge">new</code> 키워드 사용</h3>
+
+<ul>
+  <li>생성자 함수를 호출할 때 <code class="language-plaintext highlighter-rouge">new</code> 키워드를 사용하여 새로운 인스턴스를 생성함</li>
+  <li><code class="language-plaintext highlighter-rouge">new</code> 를 사용하면 새로운 객체가 생성되고 생성자 함수 내의 코드가 실행됨</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">soojin</span><span class="dl">"</span><span class="p">,</span> <span class="mi">21</span><span class="p">);</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="️-프로토타입-활용">⭐️ 프로토타입 활용</h3>
+
+<ul>
+  <li>생성자 함수는 일반적으로 프로토타입을 사용하여 모든 인스턴스가 공유할 수 있는 메서드나 속성을 정의한다</li>
+  <li>이는 메모리를 효율적으로 사용하고 중복 코드를 방지한다</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">Person</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">sayHello</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">안녕하세요 제 이름은</span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">);</span>
+<span class="p">};</span>
+
+<span class="kd">var</span> <span class="nx">person1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Person</span><span class="p">(</span><span class="dl">"</span><span class="s2">Soojin</span><span class="dl">"</span><span class="p">,</span> <span class="mi">21</span><span class="p">);</span>
+<span class="nx">person1</span><span class="p">.</span><span class="nx">sayHello</span><span class="p">();</span> 
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="️-this-키워드">⭐️ <code class="language-plaintext highlighter-rouge">this</code> 키워드</h3>
+
+<ul>
+  <li>생성자 함수 내에서 <code class="language-plaintext highlighter-rouge">this</code> 는 새로 생성되는 객체를 가리킨다</li>
+  <li>생성자 함수를 통해 속성이나 메서드를 할당할 때 <code class="language-plaintext highlighter-rouge">this</code> 를 사용하여 현재 생성되고 있는 객체에 대한 참조를 얻을 수 있다</li>
+</ul>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">Car</span> <span class="p">(</span><span class="nx">make</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">make</span> <span class="o">=</span> <span class="nx">make</span><span class="p">;</span> 
+	<span class="k">this</span><span class="p">.</span><span class="nx">model</span> <span class="o">=</span> <span class="nx">model</span><span class="p">;</span> 
+	<span class="k">this</span><span class="p">.</span><span class="nx">start</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">엔진이 시작됨</span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">make</span> <span class="o">+</span> <span class="dl">"</span><span class="s2">  </span><span class="dl">"</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">model</span><span class="p">)</span><span class="dl">'</span><span class="s1">
+	};
+}
+var myCar = new Car ("toyota", "Carmy:");
+myCar.start();
+</span></code></pre></div></div>
+
+<h1 id="동적과-정적에-관하여">🚀동적과 정적에 관하여</h1>
+
+<h2 id="️️1-동적">🏋️‍♂️ 1. 동적</h2>
+
+<ul>
+  <li>프로그램 실행 중에 변수의 타입이나 속성이 결정됨</li>
+  <li>코드 실행 시간에 유연성을 제공하며, 타입이나 속성을 변경할 수 있음</li>
+  <li>js, python 등은 동적 언어</li>
+  <li>웹개발, 스크립팅 언어 등에서 자주 쓰임</li>
+  <li>빠른 프로토타이핑과 개발 생산성이 요구되는 환경에서 유용</li>
+</ul>
+
+<p>→ 변수의 타입이 런타임에 정해짐</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">dynamicVariable</span><span class="p">;</span>  <span class="c1">// 변수 선언 (타입은 현재 undefined)</span>
+
+<span class="nx">dynamicVariable</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span>  <span class="c1">// 숫자 타입으로 할당</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">dynamicVariable</span><span class="p">);</span>  <span class="c1">// 출력: number</span>
+
+<span class="nx">dynamicVariable</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello, world!</span><span class="dl">"</span><span class="p">;</span>  <span class="c1">// 문자열 타입으로 할당</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">dynamicVariable</span><span class="p">);</span>  <span class="c1">// 출력: string</span>
+
+<span class="nx">dynamicVariable</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>  <span class="c1">// 불리언 타입으로 할당</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">typeof</span> <span class="nx">dynamicVariable</span><span class="p">);</span>  <span class="c1">// 출력: boolean</span>
+</code></pre></div></div>
+
+<p>→ 동일한 변수가 다양한 타입을 가질 수 있음</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">dynamicVariable</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// 숫자 타입</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dynamicVariable</span><span class="p">);</span> <span class="c1">// 42</span>
+
+<span class="nx">dynamicVariable</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Hello, world!</span><span class="dl">"</span><span class="p">;</span> <span class="c1">// 문자열 타입</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">dynamicVariable</span><span class="p">);</span> <span class="c1">// Hello, world!</span>
+</code></pre></div></div>
+
+<h2 id="2-정적">💤 2. 정적</h2>
+
+<ul>
+  <li>컴파일 시간에 변수의 타입이나 속성이 결정됨</li>
+  <li>컴파일러는 타입 체크를 수행하고 오류를 런타임 이전에 찾을 수 있음</li>
+  <li>java, c++ , c# 등은 정적 언어</li>
+  <li>대규모 시스템 및 안정성이 중요한 프로젝트에서 사용됨</li>
+  <li>컴파일러에 의한 타입 체크로 런타임 오류 방지하고 성능 최적화</li>
+</ul>
+
+<p>→ 변수의 타입은 선언 시점에 명시됨 , 해당 타입에 맞는 값만 할당할 수 있음</p>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kr">public</span> <span class="kd">class</span> <span class="nx">StaticExample</span> <span class="p">{</span>
+    <span class="kr">public</span> <span class="kd">static</span> <span class="k">void</span> <span class="nx">main</span><span class="p">(</span><span class="nb">String</span><span class="p">[]</span> <span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">int</span> <span class="nx">staticVariable</span> <span class="o">=</span> <span class="mi">42</span><span class="p">;</span> <span class="c1">// 정수 타입</span>
+        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">staticVariable</span><span class="p">);</span>
+
+        <span class="c1">// 아래 주석을 해제하면 컴파일 오류 발생</span>
+        <span class="c1">// staticVariable = "Hello, world!"; // 문자열 할당은 허용되지 않음</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>위의 코드에서 <code class="language-plaintext highlighter-rouge">staticVariable</code> 은 정수 타입으로 선언됨 → 정수 값인 42를 할당할 수 있음</p>
+
+<p>but 나중에 문자열을 할당하려고 시도하면 컴파일 오류 발생</p>
+
+<p><code class="language-plaintext highlighter-rouge">anotherVariable</code>을 선언할때는 명시적으로  <code class="language-plaintext highlighter-rouge">double</code> 타입을 지정하여 실수 값 할당</p>
+
+<h2 id="3-정적-페이지">🤺3. 정적 페이지</h2>
+
+<h3 id="️정적-페이지의-특징">⭐️정적 페이지의 특징</h3>
+
+<ul>
+  <li>고정된 컨텐츠를 제공하는 웹 페이지</li>
+  <li>사용자의 요청에 따라 콘텐츠가 생성되거나 변경되지 않고 고정된 상태를 유지함</li>
+  <li>주로 HTML CSS 이미지 등의 정적 리소스로 이루어져 있음</li>
+</ul>
+
+<h3 id="정적-페이지의-예시">🔥정적 페이지의 예시</h3>
+
+<ul>
+  <li>블로그의 고정된 페이지</li>
+  <li>회사 소개 페이지</li>
+</ul>
+
+<p>→ 서버에 미리 저장되어 있으며, 클라이언트 요청 시에는 서버에서 그대로 전달됨</p>
+
+<h2 id="4-동적-페이지">😪4. 동적 페이지</h2>
+
+<h3 id="️-동적-페이지의-특징">⭐️ 동적 페이지의 특징</h3>
+
+<ul>
+  <li>사용자의 요청에 따라 콘텐츠가 동적으로 생성되거나 변경되는 웹 페이지</li>
+  <li>서버 측 프로그램이나 스크립트를 사용하여 사용자에게 맞춤형 컨텐츠를 동적으로 생성</li>
+  <li>주로 데이터베이스와의 상호작용이나 사용자 입력에 따라 동적으로 변하는 콘텐츠 제공</li>
+</ul>
+
+<h3 id="동적-페이지의-예시">🔥동적 페이지의 예시</h3>
+
+<ul>
+  <li>소셜 미디어 피드, 온라인 쇼핑몰의 상품 목록 등이 동적 페이지의 예시</li>
+  <li>사용자의 요청에 따라 서버에서 데이터를 가공하여 동적으로 생성되므로 항상 최신 정보 제공</li>
+  <li>주로 백엔드 프로그래밍 언어(php python node java)와 데이터베이스를 사용하여 콘텐츠를 동적으로 생성하며, 서버에서 실행되고 클라이언트에 전달함</li>
+</ul>
+
+<blockquote>
+  <p>정적 페이지는 서버에 미리 생성되어 있어 서버 부하가 낮고 로딩 속도가 빠르나 동적 페이지는 서버에서 동적으로 생성되기 때문에 서버 부하가 있을 수 있고 로딩속도가 상대적으로 느림</p>
+
+</blockquote>
+
+<hr />
+
+<h1 id="프로그램이-어떻게-실행되냐고">🚀프로그램이 어떻게 실행되냐고?</h1>
+
+<h2 id="1-선언">💬1. 선언</h2>
+
+<h3 id="️자바스크립트">⭐️자바스크립트</h3>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">var</code></strong>, <strong><code class="language-plaintext highlighter-rouge">let</code></strong>, <strong><code class="language-plaintext highlighter-rouge">const</code></strong> 등의 키워드를 사용하여 변수를 선언함</li>
+  <li>
+    <p>함수 선언, 클래스 선언도 포함</p>
+
+    <div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">javascriptCopy</span> <span class="nx">code</span>
+  <span class="kd">let</span> <span class="nx">x</span><span class="p">;</span>
+  <span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
+    <span class="c1">// 함수 내용</span>
+  <span class="p">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="️자바">⭐️자바</h3>
+
+<ul>
+  <li>클래스, 변수, 메서드 등을 선언</li>
+  <li>
+    <p>자료형이 명시적으로 필요한 경우가 많음</p>
+
+    <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">javaCopy</span> <span class="n">code</span>
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyClass</span> <span class="o">{</span>
+      <span class="kt">int</span> <span class="n">x</span><span class="o">;</span>
+      <span class="kt">void</span> <span class="nf">myMethod</span><span class="o">()</span> <span class="o">{</span>
+          <span class="c1">// 메서드 내용</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h3 id="️파이썬">⭐️파이썬</h3>
+
+<ul>
+  <li>변수를 선언하거나 함수를 정의함</li>
+  <li>
+    <p>자료형이 명시적으로 필요하지 않다</p>
+
+    <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="n">pythonCopy</span> <span class="n">code</span>
+  <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+  <span class="k">def</span> <span class="nf">my_function</span><span class="p">():</span>
+      <span class="c1"># 함수 내용
+</span></code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="2-컴파일">👩🏼‍💻2. 컴파일</h2>
+
+<hr />
+
+<h3 id="️인터프리터">🖥️인터프리터</h3>
+
+<ol>
+  <li>
+    <p><strong>동적 타입 언어</strong></p>
+
+    <p>주로 동적 타입 언어(예: 파이썬, 자바스크립트)에서 사용됩니다. 동적 타입 언어는 실행 시간에 타입을 확인하고 필요한 경우 동적으로 타입을 변환합니다.</p>
+  </li>
+  <li>
+    <p><strong>코드 실행 중 에러 확인</strong></p>
+
+    <p>소스 코드를 실행 중에 한 줄씩 읽고 실행하므로, 코드 실행 중 에러가 발생하면 해당 부분이 바로 확인됩니다.</p>
+  </li>
+  <li>
+    <p><strong>간단한 디버깅</strong></p>
+
+    <p>에러가 발생하는 코드를 발견하면 즉시 중단하고 해당 부분을 수정할 수 있습니다.</p>
+  </li>
+  <li>
+    <p><strong>코드 실행 속도가 느릴 수 있음</strong></p>
+
+    <p>컴파일러에 비해 일반적으로 실행 속도가 느릴 수 있습니다. 매번 코드를 해석하고 실행하기 때문입니다.</p>
+  </li>
+</ol>
+
+<p><strong>인터프리터의 동작 과정:</strong></p>
+
+<ol>
+  <li><strong>토큰화 및 구문 분석:</strong> 소스 코드를 토큰으로 분해하고 구문 분석하여 AST 생성.</li>
+  <li><strong>실행 및 해석:</strong> AST를 읽고, 각 문장을 순차적으로 실행하여 결과를 출력.</li>
+</ol>
+
+<h3 id="️컴파일러">🖥️컴파일러</h3>
+
+<ol>
+  <li>
+    <p><strong>정적 타입 언어</strong></p>
+
+    <p>주로 정적 타입 언어(예: C, C++, Java)에서 사용됨 정적 타입 언어는 변수의 자료형을 선언하고, 컴파일 시간에 타입을 확인</p>
+  </li>
+  <li>
+    <p><strong>컴파일 타임 오류</strong></p>
+
+    <p>컴파일러는 소스 코드를 분석하고, 타입 체크 등을 수행함→  컴파일 타임에 오류를 검출할 수 있다</p>
+  </li>
+  <li>
+    <p><strong>기계어 또는 중간 코드 생성</strong></p>
+
+    <p>소스 코드를 목적 언어(기계어) 또는 중간 코드로 변환</p>
+  </li>
+  <li>
+    <p><strong>전체 소스 코드 컴파일</strong></p>
+
+    <p>소스 코드의 전체를 컴파일하여 실행 파일을 생성</p>
+  </li>
+</ol>
+
+<p><strong>컴파일러의 동작 과정:</strong></p>
+
+<ol>
+  <li><strong>토큰화 및 구문 분석:</strong> 소스 코드를 토큰으로 분해하고 구문 분석하여 AST 생성.</li>
+  <li><strong>의미 분석:</strong> 변수, 함수 호출 등의 의미를 확인.</li>
+  <li><strong>코드 생성:</strong> 목적 언어(기계어)로 코드 생성.</li>
+  <li><strong>최적화:</strong> 생성된 코드를 최적화.</li>
+  <li><strong>링킹:</strong> 필요한 라이브러리와 연결하여 실행 파일 생성.</li>
+</ol>
+
+<aside>
+💡 컴파일러는 소스 코드를 기계어로 변환하고, 변환된 코드를 실행 파일로 저장한다. 모든 소스코드를 미리 컴파일해야 함으로 실행 전에 시간이 소요된다. 실행 파일은 플랫폼에 종속적이다
+
+</aside>
+
+<aside>
+💡 인터프리터는 소스 코드를 직접 실행하고 중간 단계의 실행 파일이 생성되지 않는다. 실행 시간에 코드를 해석하므로 빠르게 결과를 얻을 수 있다. 일반적으로 플랫폼 독립적이지만, 플랫폼에 따라 구현 방식이 좀 다르다
+
+</aside>
+
+<p>추후 다뤄봐야 할 주제 : 플랫폼 종속적, 독립적</p>
+
+<hr />
+
+<h3 id="️자바스크립트에서의-컴파일">⭐️자바스크립트에서의 컴파일</h3>
+
+<ul>
+  <li>일반적으로 브라우저에서 직접 실행되므로 명시적인 컴파일 단계가 없음</li>
+  <li>대신 인터프리터에 의해 해석됨 → 컴파일 안 함</li>
+</ul>
+
+<h3 id="️자바에서의-컴파일">⭐️자바에서의 컴파일</h3>
+
+<ul>
+  <li>자바 코드는 컴파일러에 의해 바이트코드로 변환</li>
+  <li>바이트코드는 Java 가상 머신(JVM)에서 실행</li>
+</ul>
+
+<h3 id="️파이썬에서의-컴파일">⭐️파이썬에서의 컴파일</h3>
+
+<ul>
+  <li>파이썬 코드는 바이트코드로 변환되고, 이는 파이썬 인터프리터에 의해 실행됩니다.</li>
+  <li>파이썬은 컴파일과 실행이 결합된 형태를 가지고 있습니다.</li>
+</ul>
+
+<hr />
+
+<h2 id="️3-런타임">🏃🏻‍♀️3. 런타임</h2>
+
+<h3 id="️자바스크립트-1">⭐️자바스크립트</h3>
+
+<ul>
+  <li>브라우저나 Node.js🖥️같은 환경에서 코드가 실행</li>
+</ul>
+
+<h3 id="️자바-1">⭐️자바</h3>
+
+<ul>
+  <li>자바 가상 머신 (JVM)에서 바이트코드가 실행</li>
+</ul>
+
+<h3 id="️파이썬-1">⭐️파이썬</h3>
+
+<ul>
+  <li>파이썬 인터프리터에서 코드가 실행</li>
+</ul>
+
+<hr />
+
+<h1 id="그래서-어떻게-실행되는지-하나씩-정리해줄게-">🚀그래서 어떻게 실행되는지 하나씩 정리해줄게 !</h1>
+
+<h3 id="️자바스크립트-동적-타입-언어">⭐️<strong>자바스크립트 (동적 타입 언어):</strong></h3>
+
+<ol>
+  <li><strong>선언 (Declaration)</strong>
+    <ul>
+      <li>변수나 함수 등을 선언</li>
+    </ul>
+  </li>
+  <li><strong>런타임 (Runtime)</strong>
+    <ul>
+      <li>코드가 실행되면서 변수의 타입이 동적으로 결정</li>
+      <li>변수에 값을 할당하거나 함수를 호출하는 등의 동작이 런타임에 이루어짐</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="️자바-정적-타입-언어">⭐️<strong>자바 (정적 타입 언어)</strong></h3>
+
+<ol>
+  <li><strong>선언 (Declaration)</strong>
+    <ul>
+      <li>클래스, 변수, 메서드 등을 선언하고, 변수의 타입이 명시</li>
+    </ul>
+  </li>
+  <li><strong>컴파일 (Compilation)</strong>
+    <ul>
+      <li>소스 코드가 바이트코드로 변환되어 컴파일</li>
+    </ul>
+  </li>
+  <li><strong>런타임 (Runtime)</strong>
+    <ul>
+      <li>JVM(Java Virtual Machine)에서 바이트코드가 실행</li>
+    </ul>
+  </li>
+</ol>
+
+<h3 id="️파이썬-동적-타입-언어">⭐️<strong>파이썬 (동적 타입 언어)</strong></h3>
+
+<ol>
+  <li><strong>선언 (Declaration)</strong>
+    <ul>
+      <li>변수나 함수 등을 선언. 변수에 대한 타입 선언은 필요하지 않음.</li>
+    </ul>
+  </li>
+  <li><strong>런타임 (Runtime)</strong>
+    <ul>
+      <li>코드가 실행되면서 변수의 타입이 동적으로 결정.</li>
+      <li>변수에 값을 할당하거나 함수를 호출하는 등의 동작이 런타임에 이루어짐.</li>
+    </ul>
+  </li>
+</ol>
+
+<h1 id="오늘을-마무리하며">오늘을 마무리하며</h1>
+<p>cs지식을 더 많이 쌓아야겠다.
+기초부터 천천히 올려야 뭔가 된다</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#javascript">javascript</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#javascript">javascript</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/javascript/Today/">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 프로퍼티 어트리뷰트
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/javascript/TIL/">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            생성자 함수에의한 객체 생성s
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/javascript/Namechange/';
+        this.page.identifier = '/javascript/Namechange/';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mylog-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  
+
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 insidepixce; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>나의 기막힌 성장기</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

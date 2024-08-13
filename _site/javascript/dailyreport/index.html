@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>맥에서 리눅스 환경 구축하기- 도커란 무엇인가?s | Insidepixce inworld</title>
+<meta name="generator" content="Jekyll v3.9.4" />
+<meta property="og:title" content="맥에서 리눅스 환경 구축하기- 도커란 무엇인가?s" />
+<meta name="author" content="insidepixce" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="description" content="도커란 무엇인가? 개념부터 정리해보자." />
+<meta property="og:description" content="도커란 무엇인가? 개념부터 정리해보자." />
+<link rel="canonical" href="http://localhost:4000/javascript/dailyreport/" />
+<meta property="og:url" content="http://localhost:4000/javascript/dailyreport/" />
+<meta property="og:site_name" content="Insidepixce inworld" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-05T16:00:00-09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="맥에서 리눅스 환경 구축하기- 도커란 무엇인가?s" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"insidepixce"},"dateModified":"2024-07-05T16:00:00-09:00","datePublished":"2024-07-05T16:00:00-09:00","description":"도커란 무엇인가? 개념부터 정리해보자.","headline":"맥에서 리눅스 환경 구축하기- 도커란 무엇인가?s","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/dailyreport/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/javascript/dailyreport/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Insidepixce inworld" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Insidepixce inworld</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <h3 class="toc-title">Table of Contents</h3>
+<nav class="toc-nav">
+  <ul class="toc">
+  <li><a href="#도커란">도커란?</a></li>
+  <li><a href="#비유해보자면">비유해보자면</a>
+    <ul>
+      <li><a href="#컨테이너">컨테이너</a></li>
+      <li><a href="#이미지">이미지</a></li>
+      <li><a href="#도커-엔진">도커 엔진</a></li>
+      <li><a href="#도커-허브">도커 허브</a></li>
+      <li><a href="#도커-컴포즈">도커 컴포즈</a></li>
+      <li><a href="#그니까">그니까…</a></li>
+    </ul>
+  </li>
+</ul>
+
+</nav>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">맥에서 리눅스 환경 구축하기- 도커란 무엇인가?s</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-07-05T16:00:00-09:00" itemprop="datePublished">
+        Jul 5, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">insidepixce</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>도커란 무엇인가? 개념부터 정리해보자.</p>
+
+<h1 id="intro">intro</h1>
+<p>보안을 다뤄야 하는 상황인데, 나는 오직 맥북만 가지고 있다. 심지어 내 맥북은 intel도 아닌 m2.
+기본적인 리눅스 환경을 구축해야 하는데… 나한테는 방법이 없는 상황인걸까? 
+윈도우 pc를 하나 더 사고 설정하기 귀찮았던 나는 docker로 리눅스를 쓰겠다는 다소 무모한 도전을 시작하기로 했다.</p>
+
+<h1 id="어떻게-리눅스-환경을-구축할것인가">어떻게 리눅스 환경을 구축할것인가</h1>
+<p>먼저 도커를 설치하기로 한만큼 , 도커에 대해서 알아보자.</p>
+
+<h2 id="도커란">도커란?</h2>
+<p>도커는 소프트웨어 개발 및 배포에 혁신을 가져온 플랫폼이라고 한다. 애플리케이션을 컨테이너라는 가벼운 가상 환경에서 실행할 수 있도록 도와주고, 이러한 컨테이너는 격리된 환경에서 애플리케이션과 그 종속성을 함께 패키징하여 어디서든 실행할수 있게 도와준다.</p>
+
+<h2 id="비유해보자면">비유해보자면</h2>
+<p>도커는 일종의 컨테이너 선박으로 비유할 수 있다.</p>
+
+<h3 id="컨테이너">컨테이너</h3>
+<p>컨테이너는 물건을 담는 상자이다. 컨테이너는 일정한 크기와 형태를 가지고 있으며, 어떤 물건이든 그 안에 넣을 수 있다. 
+즉 그냥 컨테이너는 진짜 컨테이너라고 생각하면 된다는 이야기이다. 컨테이너 상자에 물건을 넣으면, 그 상자는 배든 기차든 트럭이든 동일하게 운반할 수 있다. 이와 같이 그 애플리케이션은 어떤 컴퓨터에서 동일하게 실행될 수 있다는거다.</p>
+
+<h3 id="이미지">이미지</h3>
+<p>컨테이너에 어플리케이션 채워 넣기 전에 어떻게 채울지를 정하는 설계도나 템플릿이다. 설계도에 따라 컨테이너 상자에 물건을 넣는 것 처럼 말이다,</p>
+
+<h3 id="도커-엔진">도커 엔진</h3>
+<p>컨테이너 선박을 운영하고 관리하는 시스템이다. 도커 엔진은 컨테이너를 생성하고 실행하는 소프트웨어라고 생각하면 된다. 나도 이게 잘 이해가 안되었다,</p>
+
+<h3 id="도커-허브">도커 허브</h3>
+<p>컨테이너를 보관하고 필요할떄 꺼내 쓸수있는 큰 창고이다. 이미지들을 저장하고 공유하는 클라웅드 서비스이다. 
+물건을 보관해두는 창고처럼, 도커 허브는 도커 이미지를 저장해두고 필요할때 다운로드받아 사용할 수 있다 .</p>
+
+<h3 id="도커-컴포즈">도커 컴포즈</h3>
+<p>여러개의 컨테이너 상자를 묶어 한번에 관리하는 시스템이라고 보면 된다 
+여러 컨테이너 상자를 하나의 운송 단위로 묶어 관리하는 느낌?</p>
+
+<h3 id="그니까">그니까…</h3>
+<ul>
+  <li>컨테이너 : 물건을 담은 상자 (애플리케이션과 모든 필요요소를 포함한 패키지)</li>
+  <li>이미지 : 상자를 채우기 위한 설계도(컨테이너 생성 템플릿)</li>
+  <li>도커 엔진 : 선박 운영 시스템 (컨테이너를 생성하고 관리하는 소프트웨어)</li>
+  <li>도커 허브 : 큰 창고 (도커 이미지를 저장하고 공유)</li>
+  <li>도커 컴포즈 : 상자 묶음 관리 시스템 (여러 컨테이너를 정의하고 실행)</li>
+</ul>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#javascript">javascript</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#javascript">javascript</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/javascript/%EC%96%B4%EB%A6%B0%EC%9D%B4%EB%82%A0/">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> sql서브쿼리 실습
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/sec/dockeruse/">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            맥에서 리눅스 환경 구축하기- 도커 기본 설정값 1편
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/javascript/dailyreport/';
+        this.page.identifier = '/javascript/dailyreport/';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mylog-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  
+
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 insidepixce; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>나의 기막힌 성장기</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

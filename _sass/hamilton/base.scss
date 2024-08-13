@@ -1,10 +1,13 @@
+
 html {
-  font-size: $base-font-size;
+  font-size: 14px;
 
   @include media-query($on-small) {
     @include relative-font-size(0.89);
   }
 }
+
+
 
 /**
  * Reset some basic elements
@@ -16,6 +19,9 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
+body {
+  font-family: "Gowun Batang", serif;
+}
 /**
  * Set `margin-bottom` to maintain vertical rhythm
  */

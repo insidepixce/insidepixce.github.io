@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>오즈코딩 start- 네이버 화면 커스텀하기 | Insidepixce inworld</title>
+<meta name="generator" content="Jekyll v3.9.4" />
+<meta property="og:title" content="오즈코딩 start- 네이버 화면 커스텀하기" />
+<meta name="author" content="insidepixce" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="description" content="어머머머…굿즈 왔다 ! 잘쓸게요" />
+<meta property="og:description" content="어머머머…굿즈 왔다 ! 잘쓸게요" />
+<link rel="canonical" href="http://localhost:4000/oz_coding/%EC%98%A4%EC%A6%881st/" />
+<meta property="og:url" content="http://localhost:4000/oz_coding/%EC%98%A4%EC%A6%881st/" />
+<meta property="og:site_name" content="Insidepixce inworld" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-08-11T17:00:00-09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="오즈코딩 start- 네이버 화면 커스텀하기" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"insidepixce"},"dateModified":"2024-08-11T17:00:00-09:00","datePublished":"2024-08-11T17:00:00-09:00","description":"어머머머…굿즈 왔다 ! 잘쓸게요","headline":"오즈코딩 start- 네이버 화면 커스텀하기","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/oz_coding/%EC%98%A4%EC%A6%881st/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/oz_coding/%EC%98%A4%EC%A6%881st/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Insidepixce inworld" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Insidepixce inworld</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <h3 class="toc-title">Table of Contents</h3>
+<nav class="toc-nav">
+  <ul class="toc">
+  <li><a href="#내가-사용하는-기능">내가 사용하는 기능</a></li>
+  <li><a href="#준비하기">준비하기</a>
+    <ul>
+      <li><a href="#1-페이지-소스-보기">1. 페이지 소스 보기</a></li>
+      <li><a href="#2개발자-도구">2.개발자 도구</a></li>
+    </ul>
+  </li>
+  <li><a href="#1-도구를-더-알아보자">1. 도구를 더 알아보자</a>
+    <ul>
+      <li><a href="#1-선택자-도구">1. 선택자 도구</a></li>
+    </ul>
+  </li>
+  <li><a href="#2-임시로-바꿔보자">2. 임시로 바꿔보자</a>
+    <ul>
+      <li><a href="#1-전체-배경과-스타일-초기화">1. 전체 배경과 스타일 초기화</a></li>
+      <li><a href="#2-배너-영역-숨기기">2. 배너 영역 숨기기</a></li>
+      <li><a href="#3-쇼핑-섹션-숨기기">3. 쇼핑 섹션 숨기기</a></li>
+      <li><a href="#4-특정-콘텐츠-헤더-항목-숨기기">4. 특정 콘텐츠 헤더 항목 숨기기</a></li>
+      <li><a href="#5-피드-숨기기">5. 피드 숨기기</a></li>
+      <li><a href="#6-우측-툴-영역-숨기기">6. 우측 툴 영역 숨기기</a></li>
+      <li><a href="#7-바로가기-리스트-숨기기">7. 바로가기 리스트 숨기기</a></li>
+      <li><a href="#8-푸터-숨기기">8. 푸터 숨기기</a></li>
+      <li><a href="#9-하단-배너-숨기기">9. 하단 배너 숨기기</a></li>
+      <li><a href="#10-검색-로고-숨기기">10. 검색 로고 숨기기</a></li>
+      <li><a href="#11-검색-그룹-스타일-수정">11. 검색 그룹 스타일 수정</a></li>
+      <li><a href="#12-헤더-검색-영역-스타일-수정">12. 헤더 검색 영역 스타일 수정</a></li>
+      <li><a href="#13-헤드라인-링크-숨기기">13. 헤드라인 링크 숨기기</a></li>
+      <li><a href="#14-검색-버튼-색-바꾸기">14. 검색 버튼 색 바꾸기</a></li>
+      <li><a href="#15-로그인-버튼-색-수정">15. 로그인 버튼 색 수정</a></li>
+      <li><a href="#16-데일리-보드-영역-숨기기">16. 데일리 보드 영역 숨기기</a></li>
+      <li><a href="#18-이슈-배너-스타일-수정">18. 이슈 배너 스타일 수정</a></li>
+      <li><a href="#19-이슈-배너-링크-숨기기">19. 이슈 배너 링크 숨기기</a></li>
+      <li><a href="#20-가상-키보드-버튼-숨기기">20. 가상 키보드 버튼 숨기기</a></li>
+    </ul>
+  </li>
+  <li><br /></li>
+</ul>
+
+</nav>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">오즈코딩 start- 네이버 화면 커스텀하기 </h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-08-11T17:00:00-09:00" itemprop="datePublished">
+        Aug 11, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">insidepixce</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="어머머머굿즈-왔다--잘쓸게요">어머머머…굿즈 왔다 ! 잘쓸게요</h1>
+<p><img src="https://github.com/user-attachments/assets/4d29e84a-06ac-4cda-b979-5d9a6e2d313d" width="50%" height="10%" />
+<img src="https://github.com/user-attachments/assets/6a0bc4a4-e720-42eb-8080-1b199216907a" width="40%" height="10%" /></p>
+
+<p>오즈코딩 굿즈가 집에 도착했다 !!!!</p>
+
+<h1 id="1강-오늘의-목표와-커스텀-준비하기">1강. 오늘의 목표와 커스텀 준비하기</h1>
+
+<blockquote>
+  <p>네이버를 내가 원하는 모습으로 바꿔주자</p>
+
+</blockquote>
+
+<h2 id="내가-사용하는-기능">내가 사용하는 기능</h2>
+
+<p>강의에서는 뉴스탭, 광고등을 다 없애고 로그인과 아이콘들만 남겨두겠다고 했지만, 나는 네이버에서 뉴스를 자주 보기 때문에 나에 맞게 네이버를 좀 바꿔보고싶다는 생각이 들었다.</p>
+
+<p>또 커스텀에 환장한 개발자로서 색을 안 바꿀수 없지 ! 나는 보통 다크모드를 사용하고, 검정과 초록의 조화 즉 사이버펑크한 느낌을 상당히 좋아한다. 그러한 색으로 커스텀을 해보기로 결심했다. 라고 했지만 프사에 맞게 커스텀되었다 ;;</p>
+
+<h2 id="준비하기">준비하기</h2>
+
+<h3 id="1-페이지-소스-보기">1. 페이지 소스 보기</h3>
+
+<p>페이지 소스 보기를 클릭하면 웹 페이지의 광고 및 콘텐츠 블록과 관련된 HTML 및 JS 코드가 나온다.</p>
+
+<p>반응형 디자인에 테마 적용, 이벤트 트래킹까지 알차게 들어있다. (사실 뒤에 코드는 다 안읽었다. 중간에 보다가 내림)</p>
+
+<p><img src="https://github.com/user-attachments/assets/67cf072c-7166-4033-bf61-7c810b4de7ea" alt="image" /></p>
+
+<p>우리가 사용하는 어떤 사이트든 모든 사이트들이 다 소스코드를 공개하고 있다.</p>
+
+<p>모든 코드를 공개하는건 아니고 프론트앤드 코드는 거의 다 공개하고 있다고 보면 됨…</p>
+
+<h3 id="2개발자-도구">2.개발자 도구</h3>
+
+<p>우클릭하고 검사를 누르면 개발자가 도구가 실행된다</p>
+
+<p><img src="https://github.com/user-attachments/assets/8879ff08-8bde-4ac5-925f-8e3119a499bf" alt="image" /></p>
+
+<p>소스 보기를 해서 나온 코드를 좀 더 정렬해서 볼 수 있다</p>
+
+<blockquote>
+  <p>웹사이트는 head와 body가 나눠져 있다</p>
+
+</blockquote>
+
+<h1 id="2강-실습해보자-">2강. 실습해보자 !</h1>
+
+<h2 id="1-도구를-더-알아보자">1. 도구를 더 알아보자</h2>
+
+<h3 id="1-선택자-도구">1. 선택자 도구</h3>
+
+<p><img src="https://github.com/user-attachments/assets/62a24972-f26a-4079-9d0d-5a59fa808ae6" alt="image" /></p>
+
+<p>선택자 도구를 사용해서 코드를 선택하는 방법을 설명해주었다.</p>
+
+<p>어떻게 매칭하는지를 알 수 있었다.</p>
+
+<h2 id="2-임시로-바꿔보자">2. 임시로 바꿔보자</h2>
+
+<p><img src="https://github.com/user-attachments/assets/c2aba516-499f-414b-9f92-03bf5285dcf0" width="600%" /></p>
+<div style="text-align: center;">
+    <img src="https://github.com/user-attachments/assets/db3fd2bf-0e4f-4e5f-af3f-bf70610c1c4e" width="10%" />
+</div>
+
+<p>코드에 나와있는 웹툰 부분을 야구로 바꿔보았더니 야구로 보여진다.</p>
+
+<p>css도 바꿔서 색상만 바꿀 수 있기도 하다.</p>
+
+<blockquote>
+  <p>새로고침하면 변경한 코드가 모두 변경된다</p>
+
+</blockquote>
+
+<h1 id="3강-영구적으로-적용시키는-방법">3강. 영구적으로 적용시키는 방법</h1>
+
+<p><img src="https://github.com/user-attachments/assets/cdaefda7-37c8-4bd5-ad62-5f20d0341338" alt="image" /></p>
+
+<p>custom style scirpt를 사용하여 저장해줬다
+다른 강의에서도 초반에 네이버를 바꾸는 실습을 잠깐 하고 넘어간적이 있는데 직접 영구적으로 설정할 수 있는 방법을 제시하고 직접 해보게 하는 강의방식이 마음에 들었다.</p>
+
+<h1 id="완성본">완성본</h1>
+<p><img src="https://github.com/user-attachments/assets/3f31a078-8fc8-4d3d-ae09-7ad8930fe259" alt="image" /></p>
+
+<ul>
+  <li>필요없는 부분을 모두 지워주었다(뉴스 제와)</li>
+  <li>로고를 지워주었다 (이때 자바스크립트 사용)</li>
+  <li>로그인 창 밑에 내 프로필 사진을 넣고 싶었는데, css수정만으로 추가적인 구조물을 넣는것은 불가능하여 원래 있던 기상 정보 탭의 기능을 다 없애고 그냥 내 로고를 들어가게 하였다</li>
+  <li>자바스크립트를 활용하여 블로그로(insidepixce.site) 로 이동하는 버튼을 구현했다.</li>
+  <li>뉴스 탭에서 엔터부분과 쇼핑투데이가 있었는데 엔터테이먼트에는 관심이 없고 쇼핑투데이는 광고러 거슬려서 빼주었다. 이때 이부분만 빼는것이 어려워 자바스크립트를 사용했다. 
+<code class="language-plaintext highlighter-rouge">iframe</code>속성을 켜주어야 한ㄷ,.</li>
+  <li>배경화면 색이 안 변해서 한참을 헤매었는데 네이버 측에서 배경화면을 이미지로 설정해뒀더라…</li>
+  <li>이미지를 안보이게 설정하고 background color을 설정해주었다</li>
+</ul>
+
+<h1 id="html-코드-설명">HTML 코드 설명</h1>
+
+<h3 id="1-전체-배경과-스타일-초기화">1. 전체 배경과 스타일 초기화</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>body {
+    background-color: #decbb1 !important; 
+    background-image: none !important; 
+}
+</code></pre></div></div>
+<h3 id="2-배너-영역-숨기기">2. 배너 영역 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.Layout-module__banner_area___CUXNe {
+    display: none;
+}
+</code></pre></div></div>
+<h3 id="3-쇼핑-섹션-숨기기">3. 쇼핑 섹션 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#shopping {
+    display: none !important;
+}
+</code></pre></div></div>
+<h3 id="4-특정-콘텐츠-헤더-항목-숨기기">4. 특정 콘텐츠 헤더 항목 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#feed &gt; div.ContentHeaderView-module__content_header___nSgPg &gt; div &gt; ul &gt; li:nth-child(4) {
+    display: none !important;
+}
+</code></pre></div></div>
+<p><code class="language-plaintext highlighter-rouge">li:nth-child(4)</code>: 특정 리스트 항목(네 번째)을 숨김. 이렇게 <code class="language-plaintext highlighter-rouge">&gt;</code>을 활용하여 타고타고 선택할수도 있음.</p>
+
+<h3 id="5-피드-숨기기">5. 피드 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#feed {
+    display: none !important;
+}
+</code></pre></div></div>
+<h3 id="6-우측-툴-영역-숨기기">6. 우측 툴 영역 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.RightWidget-module__tool_area___dhpNQ {
+    display: none !important;
+}
+</code></pre></div></div>
+<h3 id="7-바로가기-리스트-숨기기">7. 바로가기 리스트 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.shortcut_list {
+    display: none !important;
+}
+</code></pre></div></div>
+
+<h3 id="8-푸터-숨기기">8. 푸터 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.footer_inner {
+    display: none !important;
+}
+</code></pre></div></div>
+<p>푸터까지는 안 건드리려고 했는데 거슬리는걸 어떡해.</p>
+
+<h3 id="9-하단-배너-숨기기">9. 하단 배너 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.BottomBanner-module__banner_box___aWPRf {
+    display: none !important;
+}
+</code></pre></div></div>
+<h3 id="10-검색-로고-숨기기">10. 검색 로고 숨기기</h3>
+<p>이게 조금 어려웠던게 네이버에서 로고를 두개를 사용하고 있었다. 인터랙티브 로고랑 그냥 일반 svg로고를 사용했는데 움직이는 로고가 special input logo였던걸로 기억함</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#special-input-logo {
+    display: none !important;
+}
+</code></pre></div></div>
+
+<h3 id="11-검색-그룹-스타일-수정">11. 검색 그룹 스타일 수정</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.search_group_inner {
+    border: 0px solid #D2B48C !important; 
+    width: 80% !important; 
+    margin: 0 auto; 
+    padding: 10px; 
+    box-sizing: border-box; 
+}
+</code></pre></div></div>
+<p>테두리 만들려다가 없애버림. 
+넓이를 더 넓히고 중앙에 위치시키고 
+자동 중앙 정렬시킴
+내부여백 10px정도 줬고 패딩과 테두리가 헷갈리니까 border-box로 때워버림</p>
+
+<h3 id="12-헤더-검색-영역-스타일-수정">12. 헤더 검색 영역 스타일 수정</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#header .header_inner .search_area {
+    border: 0px solid #D2B48C !important; 
+    width: 80% !important; 
+    margin: 0 auto; 
+    box-sizing: border-box; 
+}
+</code></pre></div></div>
+
+<p>이것도 보더 만들려다 없애버림
+안예뻤다</p>
+
+<h3 id="13-헤드라인-링크-숨기기">13. 헤드라인 링크 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.link_headline {
+    display: none !important;
+}
+</code></pre></div></div>
+
+<h3 id="14-검색-버튼-색-바꾸기">14. 검색 버튼 색 바꾸기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#search-btn {
+    fill: #D2B48C !important;
+}
+</code></pre></div></div>
+<ul>
+  <li>svg 색 바꿀때는 fill속성을 사용한다</li>
+</ul>
+
+<h3 id="15-로그인-버튼-색-수정">15. 로그인 버튼 색 수정</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#sform {
+    border: 0px solid #D2B48C !important; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+    display: flex; 
+    align-items: center;
+}
+</code></pre></div></div>
+
+<h3 id="16-데일리-보드-영역-숨기기">16. 데일리 보드 영역 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.DailyBoardView-module__daily_board_area___Q6Jmf {
+    display: none !important;
+}
+</code></pre></div></div>
+
+<h3 id="18-이슈-배너-스타일-수정">18. 이슈 배너 스타일 수정</h3>
+<p>사진이 들어갈수 있게 이슈 배너 높이를 늘려주었다.</p>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.IssueBanner-module__issue_banner_area___pl_8r {
+    height: 300px; 
+}
+</code></pre></div></div>
+<h4 id="배경화면-설정">배경화면 설정</h4>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.IssueBanner-module__issue_banner_area___pl_8r .IssueBanner-module__banner_rolling___Qy0KZ {
+    background-image: url('https://insidepixce.site/logo.png') !important;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100%; 
+    height: 300px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; 
+}
+</code></pre></div></div>
+<h3 id="19-이슈-배너-링크-숨기기">19. 이슈 배너 링크 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.IssueBanner-module__link_banner_issue___bNYKC {
+    text-indent: -9999px; 
+    overflow: hidden;
+    display: block;
+}
+</code></pre></div></div>
+
+<h3 id="20-가상-키보드-버튼-숨기기">20. 가상 키보드 버튼 숨기기</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#ke_kbd_btn, #_nx_kbd {
+    display: none !important;
+}
+</code></pre></div></div>
+
+<h1 id="js-코드-설명">js 코드 설명</h1>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>document.querySelectorAll('.ContentHeaderView-module__tab_item___dz3nK').forEach(function(item) {
+    if (item.textContent.includes('엔터') || item.textContent.includes('쇼핑투데이')) {
+        item.style.display = 'none';
+    }
+});
+</code></pre></div></div>
+<p>엔터와 쇼핑투데이를 없애줌
+요즘 잘 쓰지 않는 문법을 쓰면서 좀 더 코드를 간결하게 쓰는 연습을 하고 있는데 이 코드 문법 좀 쌈@뽕하게 쓴 것 같다</p>
+
+<h2><br /></h2>
+
+<p>열심히 해본 것 같아서 뿌듯하긴 하다. 새로운 도전인 만큼 더욱 더 열심히 준비해야할 것이 많을텐데, 앞으로의 마음가짐을 좀 더 다잡고 시작해봐야겠다.</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#oz-coding">oz_coding</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#til">til</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/javascript/dom/">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> DOM이란 무엇인가
+
+          </span>
+        </a>
+      
+
+      
+    </nav>
+  </footer>
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/oz_coding/%EC%98%A4%EC%A6%881st/';
+        this.page.identifier = '/oz_coding/%EC%98%A4%EC%A6%881st/';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mylog-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  
+
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 insidepixce; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>나의 기막힌 성장기</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

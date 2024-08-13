@@ -5,6 +5,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -304,7 +305,7 @@ template {
   display: none; }
 
 html {
-  font-size: 18px; }
+  font-size: 14px; }
   @media screen and (max-width: 600px) {
     html {
       font-size: 0.89rem; } }
@@ -317,6 +318,9 @@ p, blockquote, pre, hr,
 dl, dd, ol, ul, figure {
   margin: 0;
   padding: 0; }
+
+body {
+  font-family: "Gowun Batang", serif; }
 
 /**
  * Set `margin-bottom` to maintain vertical rhythm
@@ -730,8 +734,8 @@ ul.social-icons {
   padding-left: 0;
   list-style: none; }
   .post-list li {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.2rem;
+    padding-bottom: 0.4rem;
     border-bottom: 1px solid;
     margin-bottom: 2rem; }
     .post-list li h2 {
@@ -960,3 +964,12 @@ figcaption.align-center {
     .footer-col:last-child {
       padding-right: 0;
       padding-left: 1rem; } }
+.gowun-batang-regular {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal; }
+
+body, h1, h2, h3, h4, h5, h6, p, blockquote, li, a, span, div {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal; }

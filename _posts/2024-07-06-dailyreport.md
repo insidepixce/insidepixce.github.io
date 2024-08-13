@@ -3,9 +3,9 @@ pin: true
 layout: post
 title: "맥에서 리눅스 환경 구축하기- 도커란 무엇인가?s"
 categories:
-  - knockon
+  - javascript
 tags:
-  - knockon
+  - javascript
 author: insidepixce
 show_excerpts: true
 date: 2024-07-06 10:00:00 +0900

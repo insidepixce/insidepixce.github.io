@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>DOM이란 무엇인가 | Insidepixce inworld</title>
+<meta name="generator" content="Jekyll v3.9.4" />
+<meta property="og:title" content="DOM이란 무엇인가" />
+<meta name="author" content="insidepixce" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="description" content="DOM(Document Object Model)은 자바스크립트와 같은 프로그래밍 언어가 웹 페이지의 구조, 스타일, 콘텐츠를 동적으로 조작할 수 있도록 하는 인터페이스이다. 웹 페이지가 브라우저에 로드될 때, HTML 문서는 트리 구조로 표현되며, 이 구조를 통해 자바스크립트는 웹 페이지의 각 요소에 접근하고 조작할 수 있다." />
+<meta property="og:description" content="DOM(Document Object Model)은 자바스크립트와 같은 프로그래밍 언어가 웹 페이지의 구조, 스타일, 콘텐츠를 동적으로 조작할 수 있도록 하는 인터페이스이다. 웹 페이지가 브라우저에 로드될 때, HTML 문서는 트리 구조로 표현되며, 이 구조를 통해 자바스크립트는 웹 페이지의 각 요소에 접근하고 조작할 수 있다." />
+<link rel="canonical" href="http://localhost:4000/javascript/dom/" />
+<meta property="og:url" content="http://localhost:4000/javascript/dom/" />
+<meta property="og:site_name" content="Insidepixce inworld" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-07-20T17:00:00-09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="DOM이란 무엇인가" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"insidepixce"},"dateModified":"2024-07-20T17:00:00-09:00","datePublished":"2024-07-20T17:00:00-09:00","description":"DOM(Document Object Model)은 자바스크립트와 같은 프로그래밍 언어가 웹 페이지의 구조, 스타일, 콘텐츠를 동적으로 조작할 수 있도록 하는 인터페이스이다. 웹 페이지가 브라우저에 로드될 때, HTML 문서는 트리 구조로 표현되며, 이 구조를 통해 자바스크립트는 웹 페이지의 각 요소에 접근하고 조작할 수 있다.","headline":"DOM이란 무엇인가","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/dom/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/javascript/dom/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Insidepixce inworld" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Insidepixce inworld</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <h3 class="toc-title">Table of Contents</h3>
+<nav class="toc-nav">
+  <ul class="toc">
+  <li><a href="#트리-구조">트리 구조:</a></li>
+  <li><a href="#노드node">노드(Node):</a></li>
+  <li><a href="#요소element-선택">요소(Element) 선택:</a></li>
+  <li><a href="#dom-조작">DOM 조작:</a></li>
+  <li><a href="#dom-이벤트">DOM 이벤트:</a>
+    <ul>
+      <li><a href="#요약">요약</a></li>
+    </ul>
+  </li>
+</ul>
+
+</nav>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">DOM이란 무엇인가</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-07-20T17:00:00-09:00" itemprop="datePublished">
+        Jul 20, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">insidepixce</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>DOM(Document Object Model)은 자바스크립트와 같은 프로그래밍 언어가 웹 페이지의 구조, 스타일, 콘텐츠를 동적으로 조작할 수 있도록 하는 인터페이스이다. 
+<br />웹 페이지가 브라우저에 로드될 때, HTML 문서는 트리 구조로 표현되며, 이 구조를 통해 자바스크립트는 웹 페이지의 각 요소에 접근하고 조작할 수 있다.</p>
+
+<h1 id="dom의-기본-개념">DOM의 기본 개념</h1>
+
+<h2 id="트리-구조">트리 구조:</h2>
+<ul>
+  <li>DOM은 트리 구조로 표현됨</li>
+  <li>HTML 문서의 각 요소는 노드(node)로 표현된다
+트리의 최상위 노드는 document 객체이며 이 아래에 HTML 태그들이 계층적으로 연결되어 있음</li>
+</ul>
+
+<blockquote>
+  <html> 요소 아래에 <body>와 <head> 요소가 있고, 그 아래에 자식 요소들 
+</head></body></html>
+</blockquote>
+
+<h2 id="노드node">노드(Node):</h2>
+
+<p>DOM에서 여러 종류의 노드는 문서의 요소를 나타냄</p>
+<h4 id="element-노드">Element 노드</h4>
+<ul>
+  <li>HTML 태그 요소를 나타냄 (예: &lt;div&gt;, &lt;p&gt;).
+    <h4 id="text-노드">Text 노드</h4>
+  </li>
+  <li>요소 내의 텍스트를 나타냄
+    <h4 id="attribute-노드">Attribute 노드</h4>
+  </li>
+  <li>요소의 속성을 나타냅니다 (예: id, class).
+    <h4 id="comment-노드">Comment 노드:</h4>
+  </li>
+  <li>HTML 주석을 나타냅니다.</li>
+</ul>
+
+<h2 id="요소element-선택">요소(Element) 선택:</h2>
+
+<p>자바스크립트가 다양한 방법으로 dom 요소를 선택</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">getElementById()</code>: 특정 ID를 가진 요소를 선택.</li>
+  <li><code class="language-plaintext highlighter-rouge">getElementsByClassName()</code>: 특정 클래스 이름을 가진 요소를 모두 선택.</li>
+  <li><code class="language-plaintext highlighter-rouge">getElementsByTagName()</code>: 특정 태그 이름을 가진 요소를 모두 선택.</li>
+  <li><code class="language-plaintext highlighter-rouge">querySelector()</code>: CSS 선택자를 사용하여 첫 번째 일치하는 요소를 선택.</li>
+  <li><code class="language-plaintext highlighter-rouge">querySelectorAll()</code>: CSS 선택자를 사용하여 일치하는 모든 요소를 선택.</li>
+</ul>
+
+<h2 id="dom-조작">DOM 조작:</h2>
+
+<p>선택된 요소를 통해 DOM을 조작</p>
+
+<ul>
+  <li>속성 변경: <code class="language-plaintext highlighter-rouge">element.setAttribute()</code>, ``element.id<code class="language-plaintext highlighter-rouge">, </code>element.className`</li>
+  <li>내용 변경: <code class="language-plaintext highlighter-rouge">element.textContent</code>, <code class="language-plaintext highlighter-rouge">element.innerHTML</code></li>
+  <li>스타일 변경: <code class="language-plaintext highlighter-rouge">element.style</code></li>
+  <li>이벤트 핸들링: <code class="language-plaintext highlighter-rouge">element.addEventListener()</code></li>
+  <li>요소 추가 및 제거: <code class="language-plaintext highlighter-rouge">document.createElement()</code>로 새로운 요소를 생성, <code class="language-plaintext highlighter-rouge">appendChild()</code> 또는 <code class="language-plaintext highlighter-rouge">removeChild()</code>로 요소를 추가하거나 제거</li>
+</ul>
+
+<h2 id="dom-이벤트">DOM 이벤트:</h2>
+<ul>
+  <li>DOM은 사용자의 상호작용(클릭, 입력 등)에 반응하여 동작하는 이벤트를 처리함 (<code class="language-plaintext highlighter-rouge">eventhandler</code>)
+이벤트 핸들러를 사용하여 특정 이벤트가 발생할 때(클릭, 스크롤 등) 실행할 코드를 정의할 수 있음
+예를 들어, 버튼 클릭 시 특정 함수를 실행하거나, 입력 필드에 텍스트가 입력될 때 실시간으로 처리하는 것이 가능</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;DOM 조작 예제&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1 id="title"&gt;Hello, World!&lt;/h1&gt;
+  &lt;button id="changeTextBtn"&gt;텍스트 변경&lt;/button&gt;
+
+  &lt;script&gt;
+    // 요소 선택
+    const titleElement = document.getElementById('title');
+    const buttonElement = document.getElementById('changeTextBtn');
+
+    // 버튼 클릭 시 텍스트 변경
+    buttonElement.addEventListener('click', () =&gt; {
+      titleElement.textContent = 'DOM 조작 완료!';
+    });
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div></div>
+
+<blockquote>
+  <p>이 예제에서는 Hello, World!라는 제목을 가진 &lt;h1&gt; 요소를 선택한 후, 버튼을 클릭하면 해당 제목의 텍스트가 DOM 조작 완료!로 변경됨</p>
+</blockquote>
+
+<h3 id="요약">요약</h3>
+
+<p>DOM은 웹 페이지의 구조를 표현하는 객체 모델로, 자바스크립트를 사용하여 웹 페이지의 내용을 동적으로 조작할 수 있게 함.</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#javascript">javascript</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#til-javascript">til-javascript</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/project_whatidid/%EC%A0%9C%EB%B0%9C/">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 서버 로그 저장형 stopwatch 구현 (js편)
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/oz_coding/%EC%98%A4%EC%A6%881st/">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            오즈코딩 start- 네이버 화면 커스텀하기
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/javascript/dom/';
+        this.page.identifier = '/javascript/dom/';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mylog-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  
+
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 insidepixce; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>나의 기막힌 성장기</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

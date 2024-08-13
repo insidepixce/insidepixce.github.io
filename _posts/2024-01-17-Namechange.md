@@ -3,9 +3,9 @@ pin: true
 layout: post
 title: "프로토타입/동적/정적"
 categories:
-  - TIL
+  - javascript
 tags:
-  - 패스파인더
+  - javascript
 author: insidepixce
 show_excerpts: true
 date: 2024-01-17 15:30:00 +0900

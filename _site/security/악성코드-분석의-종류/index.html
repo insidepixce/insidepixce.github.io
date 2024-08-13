@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>악성코드 분석의 종류 | Insidepixce inworld</title>
+<meta name="generator" content="Jekyll v3.9.4" />
+<meta property="og:title" content="악성코드 분석의 종류" />
+<meta name="author" content="insidepixce" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="description" content="악성코드 분석 입문" />
+<meta property="og:description" content="악성코드 분석 입문" />
+<link rel="canonical" href="http://localhost:4000/security/%EC%95%85%EC%84%B1%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A2%85%EB%A5%98/" />
+<meta property="og:url" content="http://localhost:4000/security/%EC%95%85%EC%84%B1%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A2%85%EB%A5%98/" />
+<meta property="og:site_name" content="Insidepixce inworld" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-02-24T14:00:00-09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="악성코드 분석의 종류" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"insidepixce"},"dateModified":"2024-02-24T14:00:00-09:00","datePublished":"2024-02-24T14:00:00-09:00","description":"악성코드 분석 입문","headline":"악성코드 분석의 종류","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/security/%EC%95%85%EC%84%B1%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A2%85%EB%A5%98/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/security/%EC%95%85%EC%84%B1%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A2%85%EB%A5%98/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Insidepixce inworld" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Insidepixce inworld</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <h3 class="toc-title">Table of Contents</h3>
+<nav class="toc-nav">
+  <ul class="toc">
+  <li><a href="#악성코드-분석의-목표">악성코드 분석의 목표</a></li>
+  <li><a href="#기초-정적-분석">기초 정적 분석</a></li>
+  <li><a href="#기초-동적-분석">기초 동적 분석</a></li>
+  <li><a href="#고급-정적-분석">고급 정적 분석</a></li>
+  <li><a href="#고급-동적-분석">고급 동적 분석</a></li>
+</ul>
+
+</nav>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">악성코드 분석의 종류</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-02-24T14:00:00-09:00" itemprop="datePublished">
+        Feb 24, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">insidepixce</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="악성코드-분석-입문">악성코드 분석 입문</h1>
+
+<h2 id="악성코드-분석의-목표">악성코드 분석의 목표</h2>
+
+<p>→ 네트워크 침입 대응에 필요한 정보를 알아내기 위함</p>
+
+<p>→ 감염된 시스템과 파일이 무엇인지 확실하게 인지하는 것</p>
+
+<p>일반적인 분석 목적 : 의심스러운 특정 바이너리가 하는 행위/ 네트워크 탐지 방법/ 피해 범위, 슻정</p>
+
+<ul>
+  <li>전체 분석이 필요하다는 판단이 내려지면 감염을 탐지할 수 있는 시그니처를 개발해야 함</li>
+</ul>
+
+<p>호스트 기반 시그니처나 흔적 → 탐지할때 사용</p>
+
+<p><strong>시그니처</strong> : 악성코드 자체의 특성</p>
+
+<p><strong>악성코드 흔적</strong>: 악성코드가 시스템에 가한 행위</p>
+
+<p>→ 형태를 변경 OR 하드 디스크에서 지알아서 삭제하는 코드를 탐지하는데 효과적임</p>
+
+<p><strong>네트워크 시그니처 :</strong> 악성코드 분석 없이 실행할 수 있지만 악성코드 분석을 이용해 생성한 시그니처는 훨씬 효과적</p>
+
+<p>→ 높은 탐지율과 낮은 오탐률</p>
+
+<h1 id="악성코드-분석-기법">악성코드 분석 기법</h1>
+
+<p>두가지 접근 기법이 있음</p>
+
+<p>→ 정적 분석 : 악성코드를 실행하지 않고 조사할 수 있음</p>
+
+<p>→ 동적 분석 : 악성코드를 실행하면서 분석</p>
+
+<h2 id="기초-정적-분석">기초 정적 분석</h2>
+
+<p>악성코드 분석을 수행할 때 대부분의 경우 그 대상은 사람이 읽을 수 없는 형태의 악성코드 파일일것임.</p>
+
+<p>→ 다양한 도구와 기법을 활용해 적은 양의 정보를 부분적으로 알아낼 수 있음</p>
+
+<p>→ 전체적인 그림을 그리려면 다양한 도구가 필요함</p>
+
+<p>→ 정교한 악성 코드에는 비효율적</p>
+
+<h2 id="기초-동적-분석">기초 동적 분석</h2>
+
+<p>악성코드를 실행한 후 감염 흔적 제거 OR 유효한 시그니처를 만듦</p>
+
+<p>→ 시스템의 행위를 관찰함</p>
+
+<p>→ 연구용으로 실행할 수 있는 환경을 설정해야함</p>
+
+<h2 id="고급-정적-분석">고급 정적 분석</h2>
+
+<p>프로그램의 <strong>명령어</strong>가 하는 작업이 무엇인지 파악하는게 목적</p>
+
+<p>→ 실행 파일을 디스어셈블러로 로드</p>
+
+<p>→ 악성코드의 내부를 역공학하는 과정</p>
+
+<p>→ cpu 가 실행하므로 고급 정적 분석을 통해 프로그램의 정확한 내용을 알 수 있음</p>
+
+<p>→ 디스어셈블블리에 특화된 지식, 코드 구성과 윈도우 운영체제 개념을 요구함</p>
+
+<h2 id="고급-동적-분석">고급 동적 분석</h2>
+
+<p>디버거를 이용해 동작하는 악성 실행 파일의 내부 상태를 점검함</p>
+
+<p>→ 실행 파일에서 세부 정보를 추출한다</p>
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#security">security</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#practical-malware-analysis">practical-malware-analysis</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/javascript/TIL/">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 렉시컬 환경
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/security/%EC%95%85%EC%84%B1%EC%BD%94%EB%93%9C%EC%9D%98-%EC%9C%A0%ED%98%95-copy/">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            악성코드의 유형
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/security/%EC%95%85%EC%84%B1%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A2%85%EB%A5%98/';
+        this.page.identifier = '/security/%EC%95%85%EC%84%B1%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A2%85%EB%A5%98/';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mylog-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  
+
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 insidepixce; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>나의 기막힌 성장기</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

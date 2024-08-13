@@ -1,1 +1,16 @@
 // Placeholder to allow customizing styles.
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+
+.gowun-batang-regular {
+  font-family: "Gowun Batang", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+body, h1, h2, h3, h4, h5, h6, p, blockquote, li, a, span, div {
+    font-family: "Gowun Batang", serif;
+    font-weight: 400;
+    font-style: normal;
+  }

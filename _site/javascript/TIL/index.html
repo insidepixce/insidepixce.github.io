@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>렉시컬 환경 | Insidepixce inworld</title>
+<meta name="generator" content="Jekyll v3.9.4" />
+<meta property="og:title" content="렉시컬 환경" />
+<meta name="author" content="insidepixce" />
+<meta property="og:locale" content="ko_KR" />
+<meta name="description" content="렉시컬 환경이란 정의 자바스크립트에서 스코프와 변수 식별자를 관리하는 메커니즘 각 함수가 생성될 때마다 자신만의 렉시컬 환경이 형성되어 해당 함수의 실행 컨텍스트를 담아냄" />
+<meta property="og:description" content="렉시컬 환경이란 정의 자바스크립트에서 스코프와 변수 식별자를 관리하는 메커니즘 각 함수가 생성될 때마다 자신만의 렉시컬 환경이 형성되어 해당 함수의 실행 컨텍스트를 담아냄" />
+<link rel="canonical" href="http://localhost:4000/javascript/TIL/" />
+<meta property="og:url" content="http://localhost:4000/javascript/TIL/" />
+<meta property="og:site_name" content="Insidepixce inworld" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-02-03T22:00:00-09:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="렉시컬 환경" />
+<meta name="google-site-verification" content="u4WXQl0Eu66rsQo2kRdCNx" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"insidepixce"},"dateModified":"2024-02-03T22:00:00-09:00","datePublished":"2024-02-03T22:00:00-09:00","description":"렉시컬 환경이란 정의 자바스크립트에서 스코프와 변수 식별자를 관리하는 메커니즘 각 함수가 생성될 때마다 자신만의 렉시컬 환경이 형성되어 해당 함수의 실행 컨텍스트를 담아냄","headline":"렉시컬 환경","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/javascript/TIL/"},"publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"http://localhost:4000/logo.png"},"name":"insidepixce"},"url":"http://localhost:4000/javascript/TIL/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+<link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Insidepixce inworld" />
+
+
+
+
+
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open%20Sans|Roboto|Roboto%20Slab|Inconsolata|Dancing%20Script|Noto%20Sans%20SC|Noto%20Sans%20TC|Noto%20Serif%20SC|Noto%20Serif%20TC|Ma%20Shan%20Zheng">
+
+<link rel="stylesheet" href="/assets/css/main.css">
+<link rel="stylesheet" href="/assets/css/skin.css">
+
+<!-- Begin selecting skin -->
+
+<!-- End selecting skin -->
+
+<script async src="https://use.fontawesome.com/releases/v5.0.12/js/all.js"></script>
+
+
+
+
+  </head>
+
+  <body>
+    <div class="site-container">
+      <header class="site-header">
+        <div class="wrapper">
+  <script>
+    function clickSidebarButton() {
+      const elem = document.getElementById("site-sidebar")
+      if (elem.style.display == "none" || elem.style.display == "") {
+        elem.style.display = "block";
+      } else {
+        elem.style.display = "none";
+      }
+    }
+  </script>
+  <a class="site-sidebar-button" onclick="clickSidebarButton()"><i class="far fa-user"></i>
+  </a>
+
+  <a class="site-title" rel="author" href="/">Insidepixce inworld</a>
+
+  
+    <nav class="site-nav">
+      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+      <label for="nav-trigger" title="nav-trigger">
+        <span class="menu-icon">
+          <svg viewBox="0 0 18 15" width="18px" height="15px">
+            <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+          </svg>
+        </span>
+      </label>
+
+      <ul class="trigger">
+              <li><a class="" href="/about/">About</a></li>
+            
+              <li><a class="" href="/years/">Years</a></li>
+            
+              <li><a class="" href="/categories/">Categories</a></li>
+            
+              <li><a class="" href="/tags/">Tags</a></li>
+            
+              <li class="dropdown" href="#">
+                <a href="javascript:void(0)" class="dropbtn">More</a>
+                <div class="dropdown-content">
+                    <a class="" href="/faq/">FAQ</a>
+                    <a class="" href="/docs/">Docs</a>
+                </div>
+              </li>
+            </ul>
+    </nav>
+  
+</div>
+
+      </header>
+      
+      <div class="site-body wrapper">
+        <aside class="site-sidebar" id="site-sidebar">
+          
+            <h3 class="toc-title">Table of Contents</h3>
+<nav class="toc-nav">
+  <ul class="toc">
+  <li><a href="#정의">정의</a>
+    <ul>
+      <li><a href="#1-환경-레코드">1. 환경 레코드</a></li>
+      <li><a href="#2-외부-렉시컬-환경에-대한-참조">2. 외부 렉시컬 환경에 대한 참조</a></li>
+    </ul>
+  </li>
+</ul>
+
+</nav>
+
+          
+        </aside>
+        <main class="site-main" id="site-main" aria-label="Content" tabindex="1">
+          <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+
+    <h1 class="post-title p-name" itemprop="name headline">렉시컬 환경</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2024-02-03T22:00:00-09:00" itemprop="datePublished">
+        Feb 3, 2024
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">insidepixce</span></span></p>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h1 id="렉시컬-환경이란">렉시컬 환경이란</h1>
+<h2 id="정의">정의</h2>
+<ul>
+  <li>자바스크립트에서 스코프와 변수 식별자를 관리하는 메커니즘</li>
+  <li>각 함수가 생성될 때마다 자신만의 렉시컬 환경이 형성되어 해당 함수의 실행 컨텍스트를 담아냄</li>
+</ul>
+
+<h3 id="1-환경-레코드">1. 환경 레코드</h3>
+<p>렉시컬 환경에서는 환경 코드가 들어있음</p>
+<ul>
+  <li>변수와 함수 식별자를 기록하는데 사용됨</li>
+  <li>현재 스코프에서 선언된 모든 변수와 해당 값에 대한 참조를 가지고 있음</li>
+</ul>
+
+<h3 id="2-외부-렉시컬-환경에-대한-참조">2. 외부 렉시컬 환경에 대한 참조</h3>
+<p>함수가 중첩될 때, 현재 함수의 외부 렉시컬 환경에 대한 참조가 저장된다.</p>
+<ul>
+  <li>스코프 체인을 형성하고 외부 스코프에 있는 변수에 접근할 수 있게 한다</li>
+</ul>
+
+<blockquote>
+  <p>렉시컬 환경은 함수가 생성될 때 정적으로 결정된다. 함수가 어디에서 선언되었지에 따라 그 환경이 정해지기 때문에 “렉시컬”이라는 용어가 붙었다. 함수가 호출될때마다 해당 함수의 렉시컬 환경이 생성되고, 함수의 실행이 끝나면 해당 환경이 제거된다.</p>
+</blockquote>
+
+<p>이런 구조를 통해 자바스크립트 스코프 체인을 만들어 변수 및 함수에 대한 유효한 범위를 유지하고, 함수가 실행될 떄 적절한 변수에 접근할 수 있게 도와준다 .</p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    
+      <div class="post-meta">
+        <i class="fas fa-folder"></i>
+        <ul class="post-taxonomies post-categories">
+          
+          
+            <li class="post-category">
+              
+              <a href="/categories/#javascript">javascript</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    
+      <div class="post-meta">
+        <i class="fas fa-tags"></i>
+        <ul class="post-taxonomies post-tags">
+          
+          
+            <li class="post-tag">
+              
+              <a href="/tags/#computer">computer</a>
+            </li>
+          
+        </ul>
+      </div>
+    
+
+    <nav class="post-pagination" role="navigation">
+      
+        <a class="post-previous" href="/ect/%ED%82%A4%EB%B3%B4%EB%93%9C/">
+          <h4 class="post-pagination-label">Prev</h4>
+          <span class="post-pagination-title">
+            <i class="fas fa-arrow-left"></i> 나의 키보드 연대기
+
+          </span>
+        </a>
+      
+
+      
+        <a class="post-next" href="/security/%EC%95%85%EC%84%B1%EC%BD%94%EB%93%9C-%EB%B6%84%EC%84%9D%EC%9D%98-%EC%A2%85%EB%A5%98/">
+          <h4 class="post-pagination-label">Next</h4>
+          <span class="post-pagination-title">
+            악성코드 분석의 종류
+ <i class="fas fa-arrow-right"></i>
+          </span>
+        </a>
+      
+    </nav>
+  </footer>
+
+  
+    <div id="disqus_thread"></div>
+    <script>
+      var disqus_config = function () {
+        this.page.url = 'http://localhost:4000/javascript/TIL/';
+        this.page.identifier = '/javascript/TIL/';
+      };
+      (function() {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://mylog-3.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+  
+
+</article>
+
+          <footer class="site-footer">
+            <div class="footer-col-wrapper">
+
+  <div class="footer-col">
+    <div class="copyright">
+      
+      
+      
+      
+      <p>Copyright © 2024 insidepixce; All rights reserved.</p>
+      
+    </div>
+    <p>
+      Powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://github.com/ngzhio/jekyll-theme-hamilton">Hamilton</a>
+    </p>
+  </div>
+
+  <div class="footer-col">
+    <p>나의 기막힌 성장기</p>
+  </div>
+</div>
+
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>
